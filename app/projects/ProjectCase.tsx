@@ -1,8 +1,48 @@
-import { CaseProgress, SignalDemo, ThreadlineDemo, ZhixuDemo } from "../CaseDemos";
+import CaseProgress from "../CaseProgress";
+import { sitePath as path } from "../site-path";
 
-export type CaseData={name:string;index:string;next:{name:string;href:string};cover:string;kicker:string;tagline:string;summary:string;role:string;user:string;stage:string;overview:[string,string];pains:[string,string][];responsibilities:[string,string,string][];flow:[string,string,string][];evidence:[string,string,string][];reflections:[string,string,string][];demo:"zhixu"|"threadline"|"signal";demoIntro:string};
-const sections=["项目概述","背景与痛点","核心职责","方案设计","交互原型","落地证据","项目复盘"];
-const Demo=({type}:{type:CaseData["demo"]})=>type==="zhixu"?<ZhixuDemo/>:type==="threadline"?<ThreadlineDemo/>:<SignalDemo/>;
-const headings={zhixu:{pain:"从一份招聘材料开始，\n看它为什么难以成为真实机会。",role:"我负责把求职流程，\n重新定义为一套机会模型。",solution:"来源、判断与行动，\n必须留在同一条机会链上。",evidence:"展示已经运行的能力，\n不使用虚构的求职效果。",reflection:"求职 AI 不应该替人决定，\n而应该帮助人看清选择。"},threadline:{pain:"计划写在工具里，\n变化却发生在工具外。",role:"我负责定义一条变化，\n如何安全地进入执行。",solution:"证据、影响、权限与回执，\n组成完整的变化执行链。",evidence:"先验证可信执行，\n再讨论自动化规模。",reflection:"真正可靠的智能体，\n必须知道什么时候停下。"},signal:{pain:"收藏越来越多，\n原始语境却越来越少。",role:"我负责重新定义，\n一条信息应该怎样被保存。",solution:"先保留整体，\n再决定是否需要结构化。",evidence:"当前是本地可运行产品，\n不声称尚未实现的云同步。",reflection:"整理不是制造更多碎片，\n而是让信息能够再次使用。"}} as const;
+type StoryBlock={label:string;title:string;body:string};
+type EvidenceItem={meta:string;title:string;detail:string};
+type StoryMarker={x:number;y:number;label:string};
+type StoryMedia={src:string;alt:string;caption:string;markers?:StoryMarker[]};
+type OwnershipItem={label:string;title:string;detail:string};
+type ArtifactItem={eyebrow:string;title:string;meta:string;items:string[]};
+type StorySection={label:string;title:string;intro?:string;blocks:StoryBlock[];evidence?:EvidenceItem[];media?:StoryMedia[];ownership?:OwnershipItem[];artifact?:ArtifactItem;demo?:boolean};
+type ProductLink={label:string;url?:string;note:string};
+export type CaseData={
+  name:string;index:string;next:{name:string;href:string};cover:string;kicker:string;tagline:string;summary:string;
+  role:string;nature:string;user:string;stage:string;facts:[string,string][];story:StorySection[];
+  demo:"zhixu"|"threadline"|"signal";demoIntro:string;productImage:string;imageNote:string;links:ProductLink[];
+};
 
-export default function ProjectCase({d}:{d:CaseData}){const h=headings[d.demo];return <main className={`case-page ${d.demo}-case`}><header className="case-nav"><a href="/">← 返回首页</a><span>{d.name} · 项目 {d.index}</span><a href={d.next.href}>下一项目：{d.next.name} →</a></header><section className="case-hero"><div className="case-cover"><img src={d.cover} alt={`${d.name} 产品界面`}/></div><div><div className="case-hero-copy"><div><p>{d.kicker}</p><h1>{d.name}</h1><h2>{d.tagline}</h2></div><p className="case-summary">{d.summary}</p></div><dl className="case-facts"><div><dt>我的角色</dt><dd>{d.role}</dd></div><div><dt>目标用户</dt><dd>{d.user}</dd></div><div><dt>项目阶段</dt><dd>{d.stage}</dd></div></dl></div></section><div className="case-body"><CaseProgress sections={sections}/><article className="case-story"><section id="section-1"><p className="section-no">01 / 项目概述</p><h2>{d.overview[0]}</h2><div className="two-copy"><p>{d.overview[1]}</p><p>{d.summary}</p></div><figure className="case-visual"><img src={d.cover} alt={`${d.name} 核心产品视图`}/><figcaption className="visual-caption"><span>核心产品界面</span><span>当前版本 · 2026</span></figcaption></figure></section><section id="section-2"><p className="section-no">02 / 背景与痛点</p><h2>{h.pain}</h2><div className="responsibility-grid">{d.pains.map(([t,p],i)=><article className="case-tile" key={t}><span>0{i+1}</span><h3>{t}</h3><p>{p}</p></article>)}</div></section><section id="section-3"><p className="section-no">03 / 我的职责</p><h2>{h.role}</h2><div className="responsibility-grid">{d.responsibilities.map(([l,t,p])=><article className="case-tile" key={t}><span>{l}</span><h3>{t}</h3><p>{p}</p></article>)}</div></section><section id="section-4"><p className="section-no">04 / 方案设计</p><h2>{h.solution}</h2><div className="product-flow">{d.flow.map(([n,t,p])=><div key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p></div>)}</div></section><section id="section-5"><p className="section-no">05 / 交互原型</p><h2>亲自走一遍核心工作流。</h2><p className="section-intro">{d.demoIntro}</p><Demo type={d.demo}/></section><section id="section-6"><p className="section-no">06 / 落地证据</p><h2>{h.evidence}</h2><div className="outcome-grid">{d.evidence.map(([l,t,p])=><article className="case-tile" key={t}><span>{l}</span><h3>{t}</h3><p>{p}</p></article>)}</div></section><section id="section-7"><p className="section-no">07 / 项目复盘</p><h2>{h.reflection}</h2><div className="reflection-grid">{d.reflections.map(([l,t,p])=><article className="case-tile" key={t}><span>{l}</span><h3>{t}</h3><p>{p}</p></article>)}</div></section></article></div><footer className="case-footer"><p>下一个项目</p><a href={d.next.href}>{d.next.name}<span>↗</span></a></footer></main>}
+export default function ProjectCase({d}:{d:CaseData}){
+  const sections=d.story.map((section)=>section.label);
+  return <main className={`case-page ${d.demo}-case`}>
+    <header className="case-nav"><a href={path("/")}>← 返回首页</a><span>{d.index} / {d.name}</span><a href={path(`${d.next.href}/`)}>下一项目：{d.next.name} →</a></header>
+    <aside className="case-rail"><div><b>{d.name}</b><span>CASE {d.index}</span></div><CaseProgress sections={sections}/><div className="case-rail-links">{d.links.map(link=>link.url?<a key={link.label} href={link.url} target="_blank" rel="noreferrer">{link.label} ↗<small>{link.note}</small></a>:<p key={link.label}>{link.label}<small>{link.note}</small></p>)}</div></aside>
+    <div className="case-mobile-nav"><CaseProgress sections={sections}/></div>
+    <section className="case-hero">
+      <div className="case-cover"><a className="case-cover-image" href={path(d.cover)} target="_blank" rel="noreferrer" aria-label={`查看 ${d.name} 产品界面原图`}><img src={path(d.cover)} alt={`${d.name} 产品界面`}/></a><span className="case-cover-hint">横向滑动 / 点击查看原图 →</span></div>
+      <div className="case-hero-main">
+        <p className="case-kicker">{d.kicker}</p><h1>{d.name}</h1><h2>{d.tagline}</h2><p className="case-summary">{d.summary}</p>
+        <dl className="case-facts"><div><dt>我的角色</dt><dd>{d.role}</dd></div><div><dt>项目性质</dt><dd>{d.nature}</dd></div><div><dt>目标用户</dt><dd>{d.user}</dd></div><div><dt>当前状态</dt><dd>{d.stage}</dd></div></dl>
+      </div>
+    </section>
+    <section className="case-snapshot">
+      <p>项目概览</p><div>{d.facts.map(([label,value])=><dl key={label}><dt>{label}</dt><dd>{value}</dd></dl>)}</div>
+    </section>
+    <div className="case-body"><article className="case-story">
+      {d.story.map((section,index)=><section id={`section-${index+1}`} key={section.label}>
+        <p className="section-no">{String(index+1).padStart(2,"0")} / {section.label}</p>
+        <h2>{section.title}</h2>{section.intro&&<p className="section-intro">{section.intro}</p>}
+        {section.blocks.length>0&&<div className={`case-blocks case-blocks-${section.blocks.length}`}>{section.blocks.map((block)=><article className="case-tile" key={block.title}><span>{block.label}</span><h3>{block.title}</h3><p>{block.body}</p></article>)}</div>}
+        {section.ownership&&<div className="case-ownership">{section.ownership.map(item=><article key={item.label}><span>{item.label}</span><h3>{item.title}</h3><p>{item.detail}</p></article>)}</div>}
+        {section.artifact&&<aside className="case-artifact"><header><span>{section.artifact.eyebrow}</span><b>{section.artifact.meta}</b></header><h3>{section.artifact.title}</h3><ol>{section.artifact.items.map(item=><li key={item}>{item}</li>)}</ol></aside>}
+        {section.evidence&&<div className="case-evidence">{section.evidence.map(item=><article key={`${item.meta}-${item.title}`}><span>{item.meta}</span><h3>{item.title}</h3><p>{item.detail}</p></article>)}</div>}
+        {section.media&&<div className={`case-media-grid case-media-${section.media.length}`}>{section.media.map(item=><figure key={item.src}><a className="case-media-frame" href={path(item.src)} target="_blank" rel="noreferrer" aria-label={`查看原图：${item.alt}`}><img src={path(item.src)} alt={item.alt}/>{item.markers?.map((marker,index)=><span className="case-marker" style={{left:`${marker.x}%`,top:`${marker.y}%`}} key={`${marker.label}-${index}`}><i>{index+1}</i>{marker.label}</span>)}</a><figcaption>{item.caption}<span>点击查看原图 ↗</span></figcaption></figure>)}</div>}
+        {section.demo&&<div className="product-proof"><div className="product-proof-head"><div><span>当前产品界面</span><p>{d.demoIntro}</p></div>{d.links.map(link=>link.url&&<a key={link.label} href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div><img src={path(d.productImage)} alt={`${d.name} 当前真实产品界面`}/><footer><span>{d.imageNote}</span><span>2026.08</span></footer></div>}
+      </section>)}
+    </article></div>
+    <footer className="case-footer"><p>下一个项目</p><a href={path(`${d.next.href}/`)}>{d.next.name}<span>↗</span></a></footer>
+  </main>;
+}

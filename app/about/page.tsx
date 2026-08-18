@@ -1,2 +1,7 @@
-export const metadata={title:"关于张灿｜AI 产品作品集",description:"张灿的教育、实习经历、产品能力与联系方式。"};
-export default function About(){return <main className="about-page"><header className="portfolio-nav"><a href="/" className="portfolio-logo">张灿</a><nav><a href="/">项目</a><a href="/about" className="active">关于我</a><a href="/resume.pdf" download>简历</a><a href="mailto:zc_xingshan@qq.com">联系</a></nav></header><section className="about-hero"><p>关于我</p><h1>张灿</h1><div><h2>四川大学管理专业本科生，AI 产品方向求职者。</h2><p>我从工科转入管理专业，习惯同时理解系统如何运转、用户为什么这样行动，以及一个方案怎样真正被实现。目前围绕求职决策、项目协作和个人信息整理完成了三个独立产品。</p></div></section><section className="about-record"><header><span>经历</span><h2>教育与实习</h2></header><article><time>2025.06—2025.09</time><div><h3>百词斩 · AIGC 内容量产助理</h3><p>参与 Prompt 体系迭代、内容质量标准和 Bad Case 治理。通过评测、归因和反馈闭环处理模型输出的不确定性。</p></div></article><article><time>2024.09—2029.06</time><div><h3>四川大学 · 管理专业本科</h3><p>GPA 3.69 / 4.00，英语六级。由工科转入管理专业。</p></div></article></section><section className="about-capabilities"><header><span>能力</span><h2>我能承担的工作</h2></header><div><article><span>01</span><h3>产品设计</h3><p>用户场景、需求拆解、信息架构、MVP、PRD、交互原型与验收标准。</p></article><article><span>02</span><h3>AI 应用设计</h3><p>Prompt、结构化输出、模型评测、Bad Case 归因、人工确认与权限边界。</p></article><article><span>03</span><h3>原型实现</h3><p>React、TypeScript、Next.js、API 与数据流，能够把方案做成可操作产品。</p></article></div></section><section className="about-facts"><div><span>项目</span><b>职序 ZHIXU / Threadline / Signal</b></div><div><span>荣誉</span><b>2024 学年国家励志奖学金</b></div><div><span>校园</span><b>百度飞桨领航团核心成员</b></div><div><span>联系方式</span><a href="mailto:zc_xingshan@qq.com">zc_xingshan@qq.com ↗</a></div></section><footer className="about-footer"><a href="/resume.pdf" download>下载完整简历 ↓</a><a href="/">返回项目首页 ↑</a></footer></main>}
+import AboutRedirect from "./AboutRedirect";
+
+export const dynamic = "force-static";
+
+export default function About() {
+  return <AboutRedirect />;
+}

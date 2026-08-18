@@ -23,7 +23,7 @@ export default function SiteMotion() {
       if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("http")) return;
       event.preventDefault();
       setLeaving(true);
-      window.setTimeout(() => { window.location.href = href; }, 520);
+      window.setTimeout(() => { window.location.href = href; }, reduced ? 0 : 180);
     };
     document.addEventListener("click", navigate);
 
@@ -34,7 +34,7 @@ export default function SiteMotion() {
 
     document.documentElement.classList.add("motion-ready");
     const targets = document.querySelectorAll(
-      ".reveal-group > *, .reveal-card, .case-hero-copy > *, .case-facts, .case-story > section > *"
+      ".reveal-group > *, .reveal-card, .case-hero-main > *, .case-facts, .case-story > section > *"
     );
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => {

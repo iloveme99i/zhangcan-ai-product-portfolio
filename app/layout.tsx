@@ -3,8 +3,11 @@ import "./globals.css";
 import SiteMotion from "./SiteMotion";
 
 export const metadata: Metadata = {
-  title: "张灿｜AI 产品方向",
-  description: "四川大学张灿的个人求职网站，展示 AI 产品项目、AIGC 实习经历与产品能力。",
+  metadataBase: new URL("https://iloveme99i.github.io/zhangcan-ai-product-portfolio/"),
+  title: "张灿｜AI 产品实习作品集",
+  description: "四川大学张灿的 AI 产品实习作品集：Threadline、职序与 Signal 三个真实产品项目。",
+  openGraph: { title: "张灿｜AI 产品实习作品集", description: "Threadline、职序 ZHIXU 与 Signal 产品案例。", images: ["/zhangcan-ai-product-portfolio/og.png"] },
+  twitter: { card: "summary_large_image", title: "张灿｜AI 产品实习作品集", description: "Threadline、职序 ZHIXU 与 Signal 产品案例。", images: ["/zhangcan-ai-product-portfolio/og.png"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

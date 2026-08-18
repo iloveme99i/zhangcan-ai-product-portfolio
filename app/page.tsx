@@ -1,15 +1,100 @@
-const projects = [
-  { title: "职序 ZHIXU", eyebrow: "求职机会与决策工作台", description: "把招聘截图、JD、链接和文件，转化为可确认、可比较、可投递、可跟踪的求职机会。", image: "/zhixu-cover.svg", href: "/projects/zhixu", tags: ["AI 产品", "独立设计与开发"] },
-  { title: "Threadline", eyebrow: "项目变化执行智能体", description: "从分散项目上下文识别变化与影响，在分级审批后执行，并验证行动是否真正完成。", image: "/threadline-cover.png", href: "/projects/threadline", tags: ["智能体设计", "可信执行"] },
-  { title: "Signal", eyebrow: "个人收藏整理工具", description: "保留原始来源和完整语境，把散落素材整理成可检索、可行动、可持续维护的个人信息空间。", image: "/signal-cover.svg", href: "/projects/signal", tags: ["信息架构", "AI 整理"] },
-];
+import { sitePath as path } from "./site-path";
+
+export const dynamic = "force-static";
 
 export default function Home() {
-  return <main className="site-home">
-    <header className="site-nav" data-site-nav><a className="site-brand" href="#home"><span>ZC</span><b>张灿</b></a><nav aria-label="主导航"><a href="#home" data-nav-section="home">首页</a><a href="#portfolio" data-nav-section="portfolio">作品集</a><a href="#about" data-nav-section="about">关于我</a><a href="/resume.pdf" download>简历下载</a><a href="#contact" data-nav-section="contact">联系方式</a></nav></header>
-    <section className="minimal-hero" id="home"><div className="hero-aura" aria-hidden="true"/><div className="hero-content reveal-group"><p className="eyebrow"><i/> 2026 年产品实习求职中</p><h1>张灿</h1><p className="hero-role">AI 产品方向求职者</p><p className="hero-value">把复杂的 AI 能力，设计成用户能理解、能信任、也真正愿意使用的产品。</p><div className="hero-actions"><a className="button button-primary" href="#portfolio">浏览作品集 <span>↓</span></a><a className="button button-secondary" href="/resume.pdf" download>下载简历 <span>↗</span></a></div></div><a className="scroll-cue" href="#portfolio"><span/> 向下浏览</a></section>
-    <section className="section portfolio-section" id="portfolio"><div className="section-shell"><header className="section-heading reveal-group"><div><p className="eyebrow">项目作品</p><span>3 个真实产品项目</span></div><h2>从问题判断，<br/>到可运行产品。</h2></header><div className="project-grid">{projects.map((project,index)=><a className="project-card reveal-card" href={project.href} key={project.title}><div className="project-media"><img src={project.image} alt={`${project.title} 产品预览`}/><span className="project-index">0{index+1}</span><span className="project-open">进入完整案例 ↗</span></div><div className="project-info"><p>{project.eyebrow}</p><h3>{project.title}</h3><span>{project.description}</span><ul>{project.tags.map(tag=><li key={tag}>{tag}</li>)}</ul></div></a>)}</div></div></section>
-    <section className="section about-section" id="about"><div className="section-shell"><header className="section-heading about-heading reveal-group"><div><p className="eyebrow">个人信息</p><span>四川大学 · GPA 3.69 / 4.00</span></div><h2>关于我</h2></header><div className="about-intro reveal-card"><p>我是张灿，四川大学管理专业本科生。工科转入管理的经历，让我习惯同时理解系统如何运转，以及用户为什么这样行动。</p><p>我关注 AI 产品的信息可信、决策解释与自动化权限，并通过职序、Threadline 和 Signal 三个项目持续实践产品设计与开发。</p></div><div className="about-grid"><article className="glass-panel reveal-card"><p className="panel-label">实习经历</p><h3>百词斩 · AIGC 内容量产助理</h3><span>2025.06 — 2025.09</span><p>参与 Prompt 体系迭代、内容质量标准与 Bad Case 治理，用评测与反馈闭环管理模型的不确定性。</p></article><article className="glass-panel reveal-card"><p className="panel-label">技能</p><div className="skill-groups"><div><b>产品</b><span>用户场景 / 需求拆解 / MVP / PRD / 原型 / 验收</span></div><div><b>AI</b><span>Prompt / JSON Schema / 评测 / Bad Case 归因</span></div><div><b>技术</b><span>API / React / TypeScript / Next.js / 数据流</span></div></div></article><article className="glass-panel value-panel reveal-card"><p className="panel-label">工作能力</p><h3>我能为团队创造什么</h3><ul><li><span>01</span>把模糊 AI 想法拆成可验证的问题</li><li><span>02</span>把能力边界转化为交互与状态规则</li><li><span>03</span>用真实证据和版本迭代持续改善结果</li></ul></article><article className="glass-panel honors-panel reveal-card"><p className="panel-label">荣誉与经历</p><ul><li><b>2024</b><span>国家励志奖学金</span></li><li><b>成员</b><span>百度飞桨领航团核心成员</span></li><li><b>英语</b><span>英语六级</span></li></ul></article></div><a className="button button-secondary resume-bottom" href="/resume.pdf" download>下载完整 PDF 简历 <span>↓</span></a></div></section>
-    <section className="section contact-section" id="contact"><div className="section-shell contact-shell reveal-group"><p className="eyebrow">联系方式</p><h2>联系我</h2><p className="contact-note">AI 产品实习 / 产品经理实习</p><a className="contact-email" href="mailto:zc_xingshan@qq.com">zc_xingshan@qq.com <span>↗</span></a><div className="contact-meta"><span>成都 / 可实习</span><span>四川大学 · 管理专业</span><a href="/resume.pdf" download>下载简历 ↓</a></div></div></section>
-  </main>;
+  return (
+    <main className="folio-home" id="home">
+      <header className="folio-nav" data-site-nav>
+        <a className="folio-mark" href="#home" aria-label="返回首页">ZC<span>／26</span></a>
+        <nav aria-label="主导航">
+          <a href="#work" data-nav-section="work">项目</a>
+          <a href="#about" data-nav-section="about">关于</a>
+          <a href={path("/resume.pdf")} download>简历 ↗</a>
+        </nav>
+        <a className="folio-contact" href="mailto:zc_xingshan@qq.com">联系我</a>
+      </header>
+
+      <section className="folio-hero folio-hero-index">
+        <div className="folio-hero-black reveal-group">
+          <header><span>AI PRODUCT PORTFOLIO</span><span>2026</span></header>
+          <div className="folio-hero-name"><p>ZHANG CAN</p><h1>张灿</h1></div>
+          <footer><span>四川大学</span><span>管理专业本科</span><span>成都</span></footer>
+        </div>
+        <aside className="folio-hero-white reveal-group">
+          <span>01 / INDEX</span>
+          <div><p>求职方向</p><h2>AI 产品实习<br/>产品相关实习</h2><p className="folio-project-preview">Threadline · 职序 ZHIXU · Signal</p></div>
+          <dl><div><dt>项目</dt><dd>3 个产品案例</dd></div><div><dt>形式</dt><dd>团队项目 / 独立项目</dd></div><div><dt>当前状态</dt><dd>寻找 2026 实习机会</dd></div></dl>
+          <nav><a href="#work">查看项目 <span>↓</span></a><a href={path("/resume.pdf")} download>下载简历 <span>↗</span></a></nav>
+        </aside>
+      </section>
+
+      <section className="folio-work" id="work">
+        <header className="folio-section-head reveal-group">
+          <p>Selected work</p><h2>项目案例</h2><span>01—03</span>
+        </header>
+        <article className="folio-feature reveal-card">
+          <a className="folio-feature-media" href={path("/projects/threadline/")}>
+            <img src={path("/real-threadline.png")} alt="Threadline 项目变化执行工作台" />
+            <span>查看完整案例 ↗</span>
+          </a>
+          <div className="folio-feature-copy">
+            <div className="folio-project-no">01 <span>／ Team Project</span></div>
+            <p className="folio-kicker">项目变化执行智能体</p>
+            <h3>Threadline</h3>
+            <p className="folio-summary">从会议、聊天与文件中识别项目变化，在证据、影响和权限判断之后进入受控执行。</p>
+            <dl>
+              <div><dt>我的角色</dt><dd>项目总负责人兼 AI 产品负责人</dd></div>
+              <div><dt>项目性质</dt><dd>7 人跨职能团队 · Agent MVP</dd></div>
+            </dl>
+            <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/threadline/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://threadline-agent.oliverruby788.chatgpt.site/" target="_blank" rel="noreferrer">打开公开 Demo <span>↗</span></a></div>
+          </div>
+        </article>
+        <div className="folio-project-pair">
+          <article className="folio-project-card reveal-card">
+            <a className="folio-card-media folio-card-zhixu" href={path("/projects/zhixu/")}><img src={path("/real-zhixu.png")} alt="职序当前求职决策工作台"/><span>02</span></a>
+            <div className="folio-card-copy">
+              <div><span>Independent Project</span><span>功能型 MVP · 持续迭代</span></div>
+              <p>求职机会与决策工作台</p><h3>职序 ZHIXU</h3>
+              <p className="folio-card-summary">当前以 JD 文本和公开链接为主要输入，把招聘信息转化为可确认、可比较、可持续跟踪的求职机会。</p>
+              <dl><div><dt>我的工作</dt><dd>产品定义、AI 工作流、独立落地</dd></div><div><dt>关键迭代</dt><dd>从职业认知工具转向求职决策工作台</dd></div></dl>
+              <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/zhixu/")}>阅读 Case Study <span>↗</span></a><span className="folio-link-note">公开演示访问权限待恢复</span></div>
+            </div>
+          </article>
+          <article className="folio-project-card reveal-card">
+            <a className="folio-card-media folio-card-signal" href={path("/projects/signal/")}><img src={path("/real-signal.png")} alt="Signal 当前信息分类工作区"/><span>03</span></a>
+            <div className="folio-card-copy">
+              <div><span>Independent Project</span><span>本地产品 · 个人日常使用</span></div>
+              <p>个人收藏整理工具</p><h3>Signal</h3>
+              <p className="folio-card-summary">保留原始来源和完整语境，让散落的信息能够被检索、编辑，并真正回到后续行动。</p>
+              <dl><div><dt>我的工作</dt><dd>信息架构、AI 交互、独立落地</dd></div><div><dt>迭代依据</dt><dd>围绕个人真实整理任务持续自用</dd></div></dl>
+              <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/signal/")}>阅读 Case Study <span>↗</span></a><span className="folio-link-note">公开体验版待部署</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="folio-about" id="about">
+        <header className="reveal-group"><p>About</p><h2>个人档案</h2><span>04</span></header>
+        <div className="folio-profile">
+          <article className="folio-profile-card reveal-card"><span>ZC / 2026</span><div><h3>张灿</h3><p>ZHANG CAN</p></div><a href="mailto:zc_xingshan@qq.com">zc_xingshan@qq.com ↗</a></article>
+          <div className="folio-profile-details reveal-card">
+            <p>四川大学管理专业本科生，正在寻找 AI 产品与产品相关实习。作品集中的三个案例分别记录团队协作、独立产品迭代与个人真实问题的产品化过程。</p>
+            <dl>
+              <div><dt>Education</dt><dd>四川大学 · 管理专业本科</dd></div>
+              <div><dt>Experience</dt><dd>百词斩 · AIGC 内容量产助理</dd></div>
+              <div><dt>Focus</dt><dd>AI 产品 · 可信交互 · 工作流</dd></div>
+              <div><dt>Seeking</dt><dd>AI 产品实习 / 产品相关实习</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <footer className="folio-footer" id="contact">
+        <p>Contact</p>
+        <div><h2>联系</h2><a href="mailto:zc_xingshan@qq.com">zc_xingshan@qq.com <span>↗</span></a></div>
+        <aside><span>成都 / 可实习</span><span>四川大学 · 管理专业</span><a href={path("/resume.pdf")} download>下载 PDF 简历 ↓</a><a href="#home">回到顶部 ↑</a></aside>
+      </footer>
+    </main>
+  );
 }
