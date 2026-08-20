@@ -13,6 +13,8 @@ test("external portfolio does not expose localhost product calls to action",asyn
   for(const source of files)assert.doesNotMatch(source,/href="http:\/\/localhost|url:"http:\/\/localhost/);
   assert.doesNotMatch(files[0],/公开演示访问权限待恢复|公开体验版待部署/);
   assert.match(files[0],/百词斩 AIGC 实习/);
+  assert.match(files[0],/四川大学 · 2029 届/);
+  assert.match(files[0],/旅游管理本科（工科转入）/);
   assert.match(files[1],/threadline-agent\.oliverruby788\.chatgpt\.site/);
 });
 
@@ -33,6 +35,8 @@ test("each case has evidence, product boundaries, and a distinct narrative",asyn
   assert.match(threadline,/Confirmed \/ Applied \/ Verified/);
   assert.match(threadline,/团队共同完成/);
   assert.match(threadline,/产品负责人交付物/);
+  assert.match(threadline,/项目变化识别与审批工具/);
+  assert.doesNotMatch(threadline,/项目变化控制层，而不是另一个任务看板|先说明我负责什么|这个项目的价值不在/);
   assert.match(zhixu,/zhixu-v1\.png/);
   assert.match(zhixu,/JD 文本与公开链接|JD 文本和公开链接/);
   assert.match(zhixu,/4 名同校实习求职用户/);
@@ -51,12 +55,15 @@ test("case navigation supports stable desktop and mobile reading",async()=>{
   assert.match(component,/case-evidence/);
   assert.match(component,/case-marker/);
   assert.match(component,/case-cover-hint/);
+  assert.match(component,/case-agent-preview/);
   assert.match(progress,/getBoundingClientRect\(\)\.top/);
   assert.match(progress,/locked\.current=\{index,until:Date\.now\(\)\+900\}/);
   assert.match(css,/case-mobile-nav \.case-progress/);
   assert.match(css,/\.case-rail\{background:#090909/);
   assert.match(css,/\.case-ownership/);
   assert.match(css,/width:720px/);
+  assert.match(css,/\.case-facts dd\{margin-top:28px;font-size:13px/);
+  assert.match(css,/\.case-ownership p\{font-size:14px/);
 });
 
 test("real current and historical product images are packaged",async()=>{

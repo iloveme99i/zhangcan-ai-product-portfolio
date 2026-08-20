@@ -10,7 +10,7 @@ export default function Home() {
         <nav aria-label="主导航">
           <a href="#work" data-nav-section="work">项目</a>
           <a href="#about" data-nav-section="about">关于</a>
-          <a href={path("/resume.pdf")} download>简历 ↗</a>
+          <a href={path("/resume.pdf")} target="_blank" rel="noreferrer">简历 ↗</a>
         </nav>
         <a className="folio-contact" href="mailto:zc_xingshan@qq.com">联系我</a>
       </header>
@@ -19,13 +19,13 @@ export default function Home() {
         <div className="folio-hero-black reveal-group">
           <header><span>AI PRODUCT PORTFOLIO</span><span>2026</span></header>
           <div className="folio-hero-name"><p>ZHANG CAN</p><h1>张灿</h1></div>
-          <footer><span>四川大学</span><span>旅游管理本科（工科转入）</span><span>成都</span></footer>
+          <footer><span>四川大学 · 2029 届</span><span>旅游管理本科（工科转入）</span><span>成都</span></footer>
         </div>
         <aside className="folio-hero-white reveal-group">
           <span>01 / INDEX</span>
           <div><p>求职方向</p><h2>AI 产品实习<br/>产品相关实习</h2><p className="folio-project-preview">百词斩 AIGC 实习｜Threadline · 职序 ZHIXU · Signal</p></div>
           <dl><div><dt>项目</dt><dd>3 个已落地 AI 产品项目</dd></div><div><dt>形式</dt><dd>1 个团队项目 / 2 个独立项目</dd></div><div><dt>当前状态</dt><dd>寻找 2026 实习机会</dd></div></dl>
-          <nav><a href="#work">查看项目 <span>↓</span></a><a href={path("/resume.pdf")} download>下载简历 <span>↗</span></a></nav>
+          <nav><a href="#work">查看项目 <span>↓</span></a><a href={path("/resume.pdf")} target="_blank" rel="noreferrer">查看简历 <span>↗</span></a></nav>
         </aside>
       </section>
 
@@ -94,7 +94,7 @@ export default function Home() {
       <footer className="folio-footer" id="contact">
         <p>Contact</p>
         <div><h2>联系</h2><a href="mailto:zc_xingshan@qq.com">zc_xingshan@qq.com <span>↗</span></a></div>
-        <aside><span>成都 / 可实习</span><span>四川大学 · 旅游管理</span><a href={path("/resume.pdf")} download>下载 PDF 简历 ↓</a><a href="#home">回到顶部 ↑</a></aside>
+        <aside><span>成都 / 可实习</span><span>四川大学 · 旅游管理</span><a href={path("/resume.pdf")} download="张灿-AI产品经理实习-四川大学-2029届.pdf">下载 PDF 简历 ↓</a><a href="#home">回到顶部 ↑</a></aside>
       </footer>
     </main>
   );

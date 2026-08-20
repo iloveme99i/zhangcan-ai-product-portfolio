@@ -26,6 +26,7 @@ export default function ProjectCase({d}:{d:CaseData}){
       <div className="case-cover"><a className="case-cover-image" href={path(d.cover)} target="_blank" rel="noreferrer" aria-label={`查看 ${d.name} 产品界面原图`}><img src={path(d.cover)} alt={`${d.name} 产品界面`}/></a><span className="case-cover-hint">横向滑动 / 点击查看原图 →</span></div>
       <div className="case-hero-main">
         <p className="case-kicker">{d.kicker}</p><h1>{d.name}</h1><h2>{d.tagline}</h2><p className="case-summary">{d.summary}</p>
+        {d.demo==="threadline"&&<div className="case-agent-preview" aria-label="Threadline Agent 工作流程动态示意"><header><span>AGENT FLOW / LIVE</span><b>检测到变化：报告新增参考文献要求</b></header><ol><li><i/>接收材料</li><li><i/>识别变化</li><li><i/>核对证据</li><li><i/>人工确认</li><li><i/>写入记录</li></ol></div>}
         <dl className="case-facts"><div><dt>我的角色</dt><dd>{d.role}</dd></div><div><dt>项目性质</dt><dd>{d.nature}</dd></div><div><dt>目标用户</dt><dd>{d.user}</dd></div><div><dt>当前状态</dt><dd>{d.stage}</dd></div></dl>
       </div>
     </section>
