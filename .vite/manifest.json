@@ -1,0 +1,71 @@
+{
+  "_framework-DqTk5rsE.js": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/framework-DqTk5rsE.js",
+    "name": "framework",
+    "imports": [
+      "_rolldown-runtime-ZNn6jzpZ.js"
+    ]
+  },
+  "_rolldown-runtime-ZNn6jzpZ.js": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/rolldown-runtime-ZNn6jzpZ.js",
+    "name": "rolldown-runtime"
+  },
+  "app/CaseProgress.tsx": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/CaseProgress-CTDyM0kc.js",
+    "name": "CaseProgress",
+    "src": "app/CaseProgress.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-ZNn6jzpZ.js",
+      "_framework-DqTk5rsE.js"
+    ]
+  },
+  "app/SiteMotion.tsx": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/SiteMotion-CcXobuLD.js",
+    "name": "SiteMotion",
+    "src": "app/SiteMotion.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-ZNn6jzpZ.js",
+      "_framework-DqTk5rsE.js"
+    ]
+  },
+  "app/about/AboutRedirect.tsx": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/AboutRedirect-CcOn8mJp.js",
+    "name": "AboutRedirect",
+    "src": "app/about/AboutRedirect.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-ZNn6jzpZ.js",
+      "_framework-DqTk5rsE.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/layout-segment-context-2h4MsuEm.js",
+    "name": "layout-segment-context",
+    "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-ZNn6jzpZ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-DqTk5rsE.js"
+    ]
+  },
+  "virtual:vinext-app-browser-entry": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/index-COLa5xQ4.js",
+    "name": "index",
+    "src": "virtual:vinext-app-browser-entry",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-ZNn6jzpZ.js",
+      "_framework-DqTk5rsE.js"
+    ],
+    "dynamicImports": [
+      "virtual:vinext-app-browser-entry",
+      "node_modules/vinext/dist/shims/layout-segment-context.js",
+      "app/about/AboutRedirect.tsx",
+      "app/SiteMotion.tsx",
+      "app/CaseProgress.tsx"
+    ]
+  }
+}
