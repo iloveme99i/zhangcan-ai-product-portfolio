@@ -7,7 +7,8 @@ type StoryMarker={x:number;y:number;label:string};
 type StoryMedia={src:string;alt:string;caption:string;markers?:StoryMarker[]};
 type OwnershipItem={label:string;title:string;detail:string};
 type ArtifactItem={eyebrow:string;title:string;meta:string;items:string[]};
-type StorySection={label:string;title:string;intro?:string;blocks:StoryBlock[];evidence?:EvidenceItem[];media?:StoryMedia[];ownership?:OwnershipItem[];artifact?:ArtifactItem;demo?:boolean};
+type ComparisonTable={headers:[string,string];rows:[string,string][]};
+type StorySection={label:string;title:string;intro?:string;blocks:StoryBlock[];evidence?:EvidenceItem[];media?:StoryMedia[];ownership?:OwnershipItem[];artifact?:ArtifactItem;comparison?:ComparisonTable;demo?:boolean};
 type ProductLink={label:string;url?:string;note:string};
 export type CaseData={
   name:string;index:string;next:{name:string;href:string};cover:string;kicker:string;tagline:string;summary:string;
@@ -37,6 +38,7 @@ export default function ProjectCase({d}:{d:CaseData}){
         <h2>{section.title}</h2>{section.intro&&<p className="section-intro">{section.intro}</p>}
         {section.blocks.length>0&&<div className={`case-blocks case-blocks-${section.blocks.length}`}>{section.blocks.map((block)=><article className="case-tile" key={block.title}><span>{block.label}</span><h3>{block.title}</h3><p>{block.body}</p></article>)}</div>}
         {section.ownership&&<div className="case-ownership">{section.ownership.map(item=><article key={item.label}><span>{item.label}</span><h3>{item.title}</h3><p>{item.detail}</p></article>)}</div>}
+        {section.comparison&&<div className="case-comparison" role="table" aria-label={`${section.label}对照表`}><div className="case-comparison-head" role="row"><b role="columnheader">{section.comparison.headers[0]}</b><b role="columnheader">{section.comparison.headers[1]}</b></div>{section.comparison.rows.map(([before,after])=><div role="row" key={before}><span role="cell">{before}</span><span role="cell">{after}</span></div>)}</div>}
         {section.artifact&&<aside className="case-artifact"><header><span>{section.artifact.eyebrow}</span><b>{section.artifact.meta}</b></header><h3>{section.artifact.title}</h3><ol>{section.artifact.items.map(item=><li key={item}>{item}</li>)}</ol></aside>}
         {section.evidence&&<div className="case-evidence">{section.evidence.map(item=><article key={`${item.meta}-${item.title}`}><span>{item.meta}</span><h3>{item.title}</h3><p>{item.detail}</p></article>)}</div>}
         {section.media&&<div className={`case-media-grid case-media-${section.media.length}`}>{section.media.map(item=><figure key={item.src}><a className="case-media-frame" href={path(item.src)} target="_blank" rel="noreferrer" aria-label={`查看原图：${item.alt}`}><img src={path(item.src)} alt={item.alt}/>{item.markers?.map((marker,index)=><span className="case-marker" style={{left:`${marker.x}%`,top:`${marker.y}%`}} key={`${marker.label}-${index}`}><i>{index+1}</i>{marker.label}</span>)}</a><figcaption>{item.caption}<span>点击查看原图 ↗</span></figcaption></figure>)}</div>}

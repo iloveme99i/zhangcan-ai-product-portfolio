@@ -11,7 +11,8 @@ test("external portfolio does not expose localhost product calls to action",asyn
     read("app/projects/zhixu/page.tsx"),read("app/projects/signal/page.tsx")
   ]);
   for(const source of files)assert.doesNotMatch(source,/href="http:\/\/localhost|url:"http:\/\/localhost/);
-  assert.match(files[0],/公开演示访问权限待恢复/);
+  assert.doesNotMatch(files[0],/公开演示访问权限待恢复|公开体验版待部署/);
+  assert.match(files[0],/百词斩 AIGC 实习/);
   assert.match(files[1],/threadline-agent\.oliverruby788\.chatgpt\.site/);
 });
 
@@ -26,19 +27,20 @@ test("each case has evidence, product boundaries, and a distinct narrative",asyn
   const [threadline,zhixu,signal]=await Promise.all([
     read("app/projects/threadline/page.tsx"),read("app/projects/zhixu/page.tsx"),read("app/projects/signal/page.tsx")
   ]);
-  assert.match(threadline,/项目总负责人兼 AI 产品负责人/);
-  assert.match(threadline,/批准不冒充外部执行/);
+  assert.match(threadline,/role:"产品负责人"/);
+  assert.match(threadline,/7 人跨职能团队/);
+  assert.match(threadline,/两个真实课程协作项目/);
+  assert.match(threadline,/Confirmed \/ Applied \/ Verified/);
   assert.match(threadline,/团队共同完成/);
-  assert.match(threadline,/真实产品负责人工作底稿/);
-  assert.match(threadline,/0af7f9e|cf7a2df/);
+  assert.match(threadline,/产品负责人交付物/);
   assert.match(zhixu,/zhixu-v1\.png/);
-  assert.match(zhixu,/5914c98/);
-  assert.match(zhixu,/JD 文本和公开链接/);
+  assert.match(zhixu,/JD 文本与公开链接|JD 文本和公开链接/);
+  assert.match(zhixu,/4 名同校实习求职用户/);
   assert.match(signal,/signal-v1\.png/);
-  assert.match(signal,/个人连续自用/);
+  assert.match(signal,/多轮真实自用迭代/);
   assert.match(signal,/经项目服务发送给 DeepSeek/);
   assert.doesNotMatch(signal,/数据和 API Key 留在当前浏览器/);
-  for(const source of [threadline,zhixu,signal])assert.equal((source.match(/^    \{label:/gm)||[]).length,5);
+  for(const source of [threadline,zhixu,signal])assert.equal((source.match(/^    \{label:/gm)||[]).length,6);
 });
 
 test("case navigation supports stable desktop and mobile reading",async()=>{
@@ -75,7 +77,7 @@ test("Zhixu uses every verified portfolio handoff screenshot",async()=>{
     await access(new URL(`public/${asset}`,root));
   }
   assert.match(page,/Cloudflare 403/);
-  assert.match(page,/截图 OCR 与 PDF 完整解析仍处于实验阶段/);
+  assert.match(page,/截图 OCR 和 PDF 解析仍处于实验阶段/);
 });
 
 test("Signal uses every verified portfolio handoff screenshot",async()=>{
@@ -89,5 +91,5 @@ test("Signal uses every verified portfolio handoff screenshot",async()=>{
     await access(new URL(`public/${asset}`,root));
   }
   assert.match(page,/公开演示版待部署/);
-  assert.match(page,/signal\.localhost/);
+  assert.match(page,/隔离演示数据/);
 });
