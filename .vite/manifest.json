@@ -41,7 +41,7 @@
     ]
   },
   "app/projects/CaseInteractiveDemo.tsx": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/CaseInteractiveDemo-8v7bmrS7.js",
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/CaseInteractiveDemo-BGOWBb-H.js",
     "name": "CaseInteractiveDemo",
     "src": "app/projects/CaseInteractiveDemo.tsx",
     "isDynamicEntry": true,
@@ -61,7 +61,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/layout-segment-context-tXLyAlE5.js",
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/layout-segment-context-BTVVHzkA.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -72,7 +72,7 @@
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/index-JTKWJUyJ.js",
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/index-D_o_L79i.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
