@@ -13,6 +13,8 @@ test("external portfolio does not expose localhost product calls to action",asyn
   for(const source of files)assert.doesNotMatch(source,/href="http:\/\/localhost|url:"http:\/\/localhost/);
   assert.doesNotMatch(files[0],/公开演示访问权限待恢复|公开体验版待部署/);
   assert.match(files[0],/百词斩 AIGC 实习/);
+  assert.match(files[0],/3000\+ 条模型生成结果/);
+  assert.match(files[0],/7 人团队 Agent Web MVP/);
   assert.match(files[0],/四川大学 · 2029 届/);
   assert.match(files[0],/旅游管理本科（工科转入）/);
   assert.match(files[1],/threadline-agent\.oliverruby788\.chatgpt\.site/);
@@ -44,7 +46,9 @@ test("each case has evidence, product boundaries, and a distinct narrative",asyn
   assert.match(signal,/多轮真实自用迭代/);
   assert.match(signal,/经项目服务发送给 DeepSeek/);
   assert.doesNotMatch(signal,/数据和 API Key 留在当前浏览器/);
-  for(const source of [threadline,zhixu,signal])assert.equal((source.match(/^    \{label:/gm)||[]).length,6);
+  assert.equal((zhixu.match(/^    \{label:/gm)||[]).length,4);
+  assert.equal((threadline.match(/^    \{label:/gm)||[]).length,6);
+  assert.equal((signal.match(/^    \{label:/gm)||[]).length,6);
 });
 
 test("case navigation supports stable desktop and mobile reading",async()=>{
@@ -55,7 +59,8 @@ test("case navigation supports stable desktop and mobile reading",async()=>{
   assert.match(component,/case-evidence/);
   assert.match(component,/case-marker/);
   assert.match(component,/case-cover-hint/);
-  assert.match(component,/case-agent-preview/);
+  assert.match(component,/CaseHeroMotion/);
+  assert.match(component,/ImageLightbox/);
   assert.match(progress,/getBoundingClientRect\(\)\.top/);
   assert.match(progress,/locked\.current=\{index,until:Date\.now\(\)\+900\}/);
   assert.match(css,/case-mobile-nav \.case-progress/);
@@ -83,8 +88,18 @@ test("Zhixu uses every verified portfolio handoff screenshot",async()=>{
     assert.match(page,new RegExp(asset.replaceAll(".","\\.")));
     await access(new URL(`public/${asset}`,root));
   }
-  assert.match(page,/Cloudflare 403/);
+  assert.doesNotMatch(page,/Cloudflare 403/);
+  assert.match(page,/zhixu-career\.oliverruby788\.chatgpt\.site/);
+  assert.match(page,/关键产品判断/);
   assert.match(page,/截图 OCR 和 PDF 解析仍处于实验阶段/);
+});
+
+test("Zhixu in-page demo exposes a complete five-step decision flow",async()=>{
+  const demo=await read("app/projects/ZhixuJourneyDemo.tsx");
+  for(const step of ["导入岗位","确认事实","硬性条件","经历证据","投递行动"])assert.match(demo,new RegExp(step));
+  assert.match(demo,/使用模拟岗位和模拟用户档案/);
+  assert.match(demo,/重新演示/);
+  assert.match(demo,/创建投递任务/);
 });
 
 test("Signal uses every verified portfolio handoff screenshot",async()=>{

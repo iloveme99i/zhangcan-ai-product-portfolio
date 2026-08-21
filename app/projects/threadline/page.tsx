@@ -1,17 +1,17 @@
 import ProjectCase,{CaseData} from "../ProjectCase";
 
-export const metadata={title:"Threadline 产品案例｜张灿 AI 产品作品集",description:"7 人团队完成并由 2 个真实课程协作小组持续测试的项目变化 Agent。",openGraph:{title:"Threadline｜张灿 AI 产品作品集",description:"项目变化识别、证据展示、影响分析与人工审批。",images:["https://iloveme99i.github.io/zhangcan-ai-product-portfolio/real-threadline.png"]},twitter:{card:"summary_large_image",title:"Threadline｜张灿 AI 产品作品集",description:"项目变化识别、证据展示、影响分析与人工审批。",images:["https://iloveme99i.github.io/zhangcan-ai-product-portfolio/real-threadline.png"]}};
+export const metadata={title:"Threadline 产品案例｜张灿 AI 产品作品集",description:"7 人团队完成并由 2 个真实课程协作小组持续测试的 AI 项目变化识别与审批 Agent。",openGraph:{title:"Threadline｜张灿 AI 产品作品集",description:"项目变化识别、证据展示、影响分析与人工审批。",images:["https://iloveme99i.github.io/zhangcan-ai-product-portfolio/real-threadline.png"]},twitter:{card:"summary_large_image",title:"Threadline｜张灿 AI 产品作品集",description:"项目变化识别、证据展示、影响分析与人工审批。",images:["https://iloveme99i.github.io/zhangcan-ai-product-portfolio/real-threadline.png"]}};
 export const dynamic="force-static";
 
 const d:CaseData={
   name:"Threadline",index:"01",next:{name:"职序 ZHIXU",href:"/projects/zhixu"},cover:"/real-threadline.png",
-  kicker:"7 人团队项目 · AI 项目执行 Agent · 2026",tagline:"面向小型团队的项目变化识别与审批工具",
+  kicker:"7 人团队项目 · AI 项目变化识别与审批 Agent · 2026.04—06",tagline:"面向小型团队的项目变化识别与审批工具",
   summary:"系统从聊天、会议记录和项目材料中识别范围、负责人和截止时间变化，展示原始依据与影响对象，并在负责人确认后写入内部行动记录。",
   role:"产品负责人",nature:"7 人跨职能团队项目",user:"3–10 人轻量项目团队",stage:"可运行 Web MVP · 公开 Demo · 2 个课程小组测试",
-  facts:[["产品","项目变化识别与审批工具"],["团队","7 人跨职能团队"],["我负责","产品定位、Agent 流程、MVP 范围与验收"],["验证","2 个课程协作小组完成项目周期测试"]],
+  facts:[["项目时间","2026.04—2026.06"],["产品","项目变化识别与审批工具"],["团队与职责","7 人跨职能团队 · 产品负责人"],["验证","2 个课程协作小组完成项目周期测试"]],
   story:[
     {label:"项目概览",title:"产品范围与当前状态",intro:"Threadline 处理沟通中出现的项目变化。当前版本覆盖上下文导入、变化识别、证据展示、影响分析、人工审批和内部行动记录；外部工具自动执行尚未接入。",blocks:[
-      {label:"产品类型",title:"AI 项目执行 Agent",body:"面向 3–10 人轻量团队，处理范围、负责人、时间与交付要求的变化。"},
+      {label:"产品类型",title:"AI 项目变化识别与审批 Agent",body:"面向 3–10 人轻量团队，处理范围、负责人、时间与交付要求的变化。"},
       {label:"当前交付",title:"可运行 Web MVP",body:"已完成公开 Demo，并在两个真实课程协作项目中持续测试。"},
       {label:"主要入口",title:"聊天、会议与项目材料",body:"导入后保留原文、来源、时间和新旧状态，供负责人核对。"}
     ],media:[{src:"/real-threadline.png",alt:"Threadline 项目变化工作台",caption:"变化中心 · 查看来源、旧状态、影响对象与建议行动",markers:[{x:8,y:38,label:"变化入口"},{x:46,y:55,label:"来源与旧状态"},{x:73,y:66,label:"影响对象"}]}],demo:true},
@@ -43,7 +43,7 @@ const d:CaseData={
       {label:"已完成",title:"Agent MVP 与公开 Demo",body:"变化识别、来源证据、影响分析、人工审批和内部行动记录已在 Web 产品中实现。"},
       {label:"已测试",title:"两个真实课程协作场景",body:"产品在两个完整课程项目周期中持续使用，并根据测试问题修改状态与审批机制。"},
       {label:"当前限制",title:"外部执行与企业验证未完成",body:"尚未连接微信、Notion、Linear 等外部工具，也未进行企业团队长期试点；不声称已提高普遍团队效率。"}
-    ],evidence:[{meta:"版本旁证",title:"2026.08.10—08.17",detail:"Git 版本记录用于证明产品持续修改；团队角色和个人贡献以职责说明及交付物为主要证据。"}]}
+    ],evidence:[{meta:"项目周期",title:"2026.04—2026.06",detail:"项目时间与简历保持一致；团队角色和个人贡献以职责说明及交付物为主要证据。"}]}
   ],
   demo:"threadline",demoIntro:"公开 Demo 展示来源、旧状态、影响对象和建议行动。",productImage:"/real-threadline.png",imageNote:"公开 Demo 示例数据 · 当前真实产品界面",links:[{label:"打开 Threadline Demo",url:"https://threadline-agent.oliverruby788.chatgpt.site/",note:"公开体验版"}]
 };

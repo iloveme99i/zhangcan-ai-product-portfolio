@@ -23,8 +23,8 @@ export default function Home() {
         </div>
         <aside className="folio-hero-white reveal-group">
           <span>01 / INDEX</span>
-          <div><p>求职方向</p><h2>AI 产品实习<br/>产品相关实习</h2><p className="folio-project-preview">百词斩 AIGC 实习｜Threadline · 职序 ZHIXU · Signal</p></div>
-          <dl><div><dt>项目</dt><dd>3 个已落地 AI 产品项目</dd></div><div><dt>形式</dt><dd>1 个团队项目 / 2 个独立项目</dd></div><div><dt>当前状态</dt><dd>寻找 2026 实习机会</dd></div></dl>
+          <div><p>求职方向</p><h2>AI 产品实习生</h2><p className="folio-positioning">做过真实 AIGC 内容生产，也能从问题定义推进到可运行 MVP。</p><p className="folio-project-preview">评测 3000+ 条模型生成结果，参与 Prompt 迭代与 Bad Case 治理。</p></div>
+          <dl className="folio-proof-list"><div><dt>真实业务</dt><dd>百词斩 AIGC 实习 · 3000+ 条评测</dd></div><div><dt>团队交付</dt><dd>7 人团队 Agent Web MVP</dd></div><div><dt>用户验证</dt><dd>2 个课程小组 · 4 名求职用户</dd></div><div><dt>独立实现</dt><dd>2 个可运行独立产品</dd></div></dl>
           <nav><a href="#work">查看项目 <span>↓</span></a><a href={path("/resume.pdf")} target="_blank" rel="noreferrer">查看简历 <span>↗</span></a></nav>
         </aside>
       </section>
@@ -36,39 +36,35 @@ export default function Home() {
         <article className="folio-feature reveal-card">
           <a className="folio-feature-media" href={path("/projects/threadline/")}>
             <img src={path("/real-threadline.png")} alt="Threadline 项目变化执行工作台" />
-            <i className="folio-cover-notes" aria-hidden="true"><b>来源证据</b><b>影响判断</b><b>人工审批</b></i>
             <span>查看完整案例 ↗</span>
           </a>
           <div className="folio-feature-copy">
             <div className="folio-project-no">01 <span>／ Team Project</span></div>
-            <p className="folio-kicker">项目变化执行智能体</p>
+            <p className="folio-kicker">AI 项目变化识别与审批 Agent</p>
             <h3>Threadline</h3>
             <p className="folio-summary">面向 3–10 人项目团队，从聊天、会议记录和项目材料中识别范围、负责人和截止时间变化，并在人工确认后更新内部行动记录。</p>
-            <dl>
-              <div><dt>我的工作</dt><dd>产品定位、Agent 流程、MVP 范围、版本优先级、验收与团队推进</dd></div>
-              <div><dt>项目证据</dt><dd>7 人团队 · Web MVP · 2 个课程协作小组测试</dd></div>
-            </dl>
+            <dl><div><dt>问题</dt><dd>讨论与正式决定混在聊天中，AI 容易误写项目状态</dd></div><div><dt>关键设计</dt><dd>来源证据 · 状态机 · 人工审批</dd></div><div><dt>结果</dt><dd>7 人团队完成 Web MVP，并在 2 个课程项目中测试</dd></div></dl>
             <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/threadline/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://threadline-agent.oliverruby788.chatgpt.site/" target="_blank" rel="noreferrer">打开公开 Demo <span>↗</span></a></div>
           </div>
         </article>
         <div className="folio-project-pair">
           <article className="folio-project-card reveal-card">
-            <a className="folio-card-media folio-card-zhixu" href={path("/projects/zhixu/")}><img src={path("/real-zhixu.png")} alt="职序当前求职决策工作台"/><i className="folio-cover-notes" aria-hidden="true"><b>岗位要求</b><b>个人证据</b><b>投递行动</b></i><span>02</span></a>
+            <a className="folio-card-media folio-card-zhixu" href={path("/projects/zhixu/")}><img src={path("/real-zhixu.png")} alt="职序当前求职决策工作台"/><span>02</span></a>
             <div className="folio-card-copy">
               <div><span>Independent Project</span><span>功能型 MVP · 4 人测试</span></div>
               <p>求职机会与决策工作台</p><h3>职序 ZHIXU</h3>
               <p className="folio-card-summary">面向实习与校招求职者，保存岗位来源，确认 JD 字段，核对硬性条件与个人经历依据，并管理投递行动。</p>
-              <dl><div><dt>我的工作</dt><dd>需求定义、产品方案、AI 工作流、产品实现与用户测试</dd></div><div><dt>项目证据</dt><dd>功能型 MVP · 4 名用户任务测试 · V1 重构</dd></div></dl>
-              <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/zhixu/")}>阅读 Case Study <span>↗</span></a></div>
+              <dl><div><dt>问题</dt><dd>匹配结论缺少依据，用户不知道为什么该投</dd></div><div><dt>关键设计</dt><dd>岗位要求 → 个人证据 → 判断 → 行动</dd></div><div><dt>结果</dt><dd>4 名用户完成真实 JD 任务，推动确认、去重和行动入口修改</dd></div></dl>
+              <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/zhixu/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://zhixu-career.oliverruby788.chatgpt.site/" target="_blank" rel="noreferrer">打开公开 Demo <span>↗</span></a></div>
             </div>
           </article>
           <article className="folio-project-card reveal-card">
-            <a className="folio-card-media folio-card-signal" href={path("/projects/signal/")}><img src={path("/real-signal.png")} alt="Signal 当前信息分类工作区"/><i className="folio-cover-notes" aria-hidden="true"><b>原始来源</b><b>轻度整理</b><b>用户分类</b></i><span>03</span></a>
+            <a className="folio-card-media folio-card-signal" href={path("/projects/signal/")}><img src={path("/real-signal.png")} alt="Signal 当前信息分类工作区"/><span>03</span></a>
             <div className="folio-card-copy">
               <div><span>Independent Project</span><span>本地产品 · 自用迭代</span></div>
               <p>个人收藏整理工具</p><h3>Signal</h3>
               <p className="folio-card-summary">对截图、收藏文字和混合备忘录进行 OCR 与轻度整理，用户确认后放入自己的分类体系，并保留原始来源。</p>
-              <dl><div><dt>我的工作</dt><dd>问题定义、信息架构、AI 整理规则、产品实现与自用迭代</dd></div><div><dt>项目证据</dt><dd>本地可运行产品 · 多轮真实自用迭代 · V1 功能删减</dd></div></dl>
+              <dl><div><dt>问题</dt><dd>AI 分析过多，反而增加个人整理的阅读负担</dd></div><div><dt>关键设计</dt><dd>只保留识别、轻度整理、用户分类与原始来源</dd></div><div><dt>结果</dt><dd>真实自用推动 V1 功能删减与产品重构</dd></div></dl>
               <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/signal/")}>阅读 Case Study <span>↗</span></a></div>
             </div>
           </article>
