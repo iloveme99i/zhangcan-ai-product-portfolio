@@ -40,8 +40,28 @@
       "_framework-DqTk5rsE.js"
     ]
   },
+  "app/projects/CaseInteractiveDemo.tsx": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/CaseInteractiveDemo-8v7bmrS7.js",
+    "name": "CaseInteractiveDemo",
+    "src": "app/projects/CaseInteractiveDemo.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-ZNn6jzpZ.js",
+      "_framework-DqTk5rsE.js"
+    ]
+  },
+  "app/projects/ImageLightbox.tsx": {
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/ImageLightbox-6gErZfJP.js",
+    "name": "ImageLightbox",
+    "src": "app/projects/ImageLightbox.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-ZNn6jzpZ.js",
+      "_framework-DqTk5rsE.js"
+    ]
+  },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/layout-segment-context-2h4MsuEm.js",
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/layout-segment-context-tXLyAlE5.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -52,7 +72,7 @@
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/index-COLa5xQ4.js",
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/index-JTKWJUyJ.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
@@ -64,7 +84,9 @@
       "virtual:vinext-app-browser-entry",
       "node_modules/vinext/dist/shims/layout-segment-context.js",
       "app/about/AboutRedirect.tsx",
+      "app/projects/CaseInteractiveDemo.tsx",
       "app/SiteMotion.tsx",
+      "app/projects/ImageLightbox.tsx",
       "app/CaseProgress.tsx"
     ]
   }
