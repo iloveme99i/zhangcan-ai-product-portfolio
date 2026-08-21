@@ -98,6 +98,9 @@ test("Zhixu in-page demo exposes a complete five-step decision flow",async()=>{
   const demo=await read("app/projects/ZhixuJourneyDemo.tsx");
   for(const step of ["导入岗位","确认事实","硬性条件","经历证据","投递行动"])assert.match(demo,new RegExp(step));
   assert.match(demo,/使用模拟岗位和模拟用户档案/);
+  assert.match(demo,/IntersectionObserver/);
+  assert.match(demo,/自动演示中/);
+  assert.match(demo,/takeControl/);
   assert.match(demo,/重新演示/);
   assert.match(demo,/创建投递任务/);
 });
