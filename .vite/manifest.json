@@ -1,84 +1,84 @@
 {
-  "_framework-DqTk5rsE.js": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/framework-DqTk5rsE.js",
+  "_framework-BgSIrAUN.js": {
+    "file": "_next/static/chunks/framework-BgSIrAUN.js",
     "name": "framework",
     "imports": [
-      "_rolldown-runtime-ZNn6jzpZ.js"
+      "_rolldown-runtime-C60lm6uB.js"
     ]
   },
-  "_rolldown-runtime-ZNn6jzpZ.js": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/rolldown-runtime-ZNn6jzpZ.js",
+  "_rolldown-runtime-C60lm6uB.js": {
+    "file": "_next/static/chunks/rolldown-runtime-C60lm6uB.js",
     "name": "rolldown-runtime"
   },
   "app/CaseProgress.tsx": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/CaseProgress-CTDyM0kc.js",
+    "file": "_next/static/chunks/CaseProgress-BVqnm7Jb.js",
     "name": "CaseProgress",
     "src": "app/CaseProgress.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-ZNn6jzpZ.js",
-      "_framework-DqTk5rsE.js"
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BgSIrAUN.js"
     ]
   },
   "app/SiteMotion.tsx": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/SiteMotion-CcXobuLD.js",
+    "file": "_next/static/chunks/SiteMotion-B4-IkT5D.js",
     "name": "SiteMotion",
     "src": "app/SiteMotion.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-ZNn6jzpZ.js",
-      "_framework-DqTk5rsE.js"
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BgSIrAUN.js"
     ]
   },
   "app/about/AboutRedirect.tsx": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/AboutRedirect-CcOn8mJp.js",
+    "file": "_next/static/chunks/AboutRedirect-Di4mgqlx.js",
     "name": "AboutRedirect",
     "src": "app/about/AboutRedirect.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-ZNn6jzpZ.js",
-      "_framework-DqTk5rsE.js"
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BgSIrAUN.js"
     ]
   },
   "app/projects/CaseInteractiveDemo.tsx": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/CaseInteractiveDemo-BGOWBb-H.js",
+    "file": "_next/static/chunks/CaseInteractiveDemo--bEUv-A0.js",
     "name": "CaseInteractiveDemo",
     "src": "app/projects/CaseInteractiveDemo.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-ZNn6jzpZ.js",
-      "_framework-DqTk5rsE.js"
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BgSIrAUN.js"
     ]
   },
   "app/projects/ImageLightbox.tsx": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/ImageLightbox-6gErZfJP.js",
+    "file": "_next/static/chunks/ImageLightbox-CaNrurwE.js",
     "name": "ImageLightbox",
     "src": "app/projects/ImageLightbox.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-ZNn6jzpZ.js",
-      "_framework-DqTk5rsE.js"
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BgSIrAUN.js"
     ]
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/layout-segment-context-BTVVHzkA.js",
+    "file": "_next/static/chunks/layout-segment-context-GrbEWPqp.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-ZNn6jzpZ.js",
+      "_rolldown-runtime-C60lm6uB.js",
       "virtual:vinext-app-browser-entry",
-      "_framework-DqTk5rsE.js"
+      "_framework-BgSIrAUN.js"
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/index-D_o_L79i.js",
+    "file": "_next/static/chunks/index-Daqx0HSC.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
     "imports": [
-      "_rolldown-runtime-ZNn6jzpZ.js",
-      "_framework-DqTk5rsE.js"
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BgSIrAUN.js"
     ],
     "dynamicImports": [
       "virtual:vinext-app-browser-entry",
