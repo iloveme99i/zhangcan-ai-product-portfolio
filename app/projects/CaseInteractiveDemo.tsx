@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect,useRef,useState} from "react";
 import ZhixuJourneyDemo from "./ZhixuJourneyDemo";
 
 const demos={
@@ -37,12 +37,21 @@ export default function CaseInteractiveDemo({kind}:{kind:keyof typeof demos}){
 
 function CompactDemo({kind}:{kind:"threadline"|"signal"}){
   const [active,setActive]=useState(0);
+  const [auto,setAuto]=useState(true);
+  const rootRef=useRef<HTMLElement|null>(null);
   const demo=demos[kind];
   const selected=demo.items[active];
-  return <section className={`case-interactive-demo interactive-${kind}`} aria-label={`${demo.title}交互演示`}>
-    <header><div><span>HTML INTERACTIVE DEMO</span><h3>{demo.title}</h3></div><small>点击或悬停查看例子</small></header>
+  useEffect(()=>{
+    const node=rootRef.current;if(!node||window.matchMedia("(prefers-reduced-motion: reduce)").matches){setAuto(false);return;}
+    let timer:number|undefined;
+    const observer=new IntersectionObserver(([entry])=>{if(entry.isIntersecting&&auto)timer=window.setInterval(()=>setActive(value=>(value+1)%demo.items.length),1800);else if(timer)window.clearInterval(timer)},{threshold:.45});
+    observer.observe(node);return()=>{observer.disconnect();if(timer)window.clearInterval(timer)};
+  },[auto,demo.items.length]);
+  const choose=(index:number)=>{setAuto(false);setActive(index)};
+  return <section ref={rootRef} className={`case-interactive-demo interactive-${kind}`} aria-label={`${demo.title}交互演示`}>
+    <header><div><span>HTML INTERACTIVE DEMO</span><h3>{demo.title}</h3></div><small className={auto?"demo-playing":""}>{auto?"自动演示中 · 点击接管":"点击任意步骤查看"}</small></header>
     <div className="interactive-object-map">
-      {demo.items.map((item,index)=><button type="button" className={index===active?"active":""} onMouseEnter={()=>setActive(index)} onFocus={()=>setActive(index)} onClick={()=>setActive(index)} key={item.name}><span>0{index+1} / {item.meta}</span><b>{item.name}</b><small>{item.summary}</small></button>)}
+      {demo.items.map((item,index)=><button type="button" className={index===active?"active":""} onMouseEnter={()=>choose(index)} onFocus={()=>choose(index)} onClick={()=>choose(index)} key={item.name}><span>0{index+1} / {item.meta}</span><b>{item.name}</b><small>{item.summary}</small></button>)}
     </div>
     <article className="interactive-detail" key={`${kind}-${active}`}>
       <div><span>当前示例</span><h4>{selected.name}</h4><p>{selected.example}</p></div>

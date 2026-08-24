@@ -24,7 +24,7 @@ export default function Home() {
         <aside className="folio-hero-white reveal-group">
           <span>01 / INDEX</span>
           <div><p>求职方向</p><h2>AI 产品实习生</h2><p className="folio-positioning">做过真实 AIGC 内容生产，也能从问题定义推进到可运行 MVP。</p><p className="folio-project-preview">评测 3000+ 条模型生成结果，参与 Prompt 迭代与 Bad Case 治理。</p></div>
-          <dl className="folio-proof-list"><div><dt>真实业务</dt><dd>百词斩 AIGC 实习 · 3000+ 条评测</dd></div><div><dt>团队交付</dt><dd>7 人团队 Agent Web MVP</dd></div><div><dt>用户验证</dt><dd>2 个课程小组 · 4 名求职用户</dd></div><div><dt>独立实现</dt><dd>2 个可运行独立产品</dd></div></dl>
+          <dl className="folio-proof-list"><div><dt>真实业务</dt><dd>百词斩 AIGC 实习 · 3000+ 条评测</dd></div><div><dt>模型治理</dt><dd>Prompt 迭代 · Bad Case 闭环</dd></div><div><dt>团队交付</dt><dd>7 人跨职能团队 Agent Web MVP</dd></div><div><dt>用户验证</dt><dd>2 个课程小组 · 4 名真实 JD 用户</dd></div><div><dt>产品交付</dt><dd>PRD · 信息架构 · 原型 · P0 验收</dd></div><div><dt>独立实现</dt><dd>2 个可运行功能型产品</dd></div></dl>
           <nav><a href="#work">查看项目 <span>↓</span></a><a href={path("/resume.pdf")} target="_blank" rel="noreferrer">查看简历 <span>↗</span></a></nav>
         </aside>
       </section>
@@ -43,7 +43,7 @@ export default function Home() {
             <p className="folio-kicker">AI 项目变化识别与审批 Agent</p>
             <h3>Threadline</h3>
             <p className="folio-summary">面向 3–10 人项目团队，从聊天、会议记录和项目材料中识别范围、负责人和截止时间变化，并在人工确认后更新内部行动记录。</p>
-            <dl><div><dt>问题</dt><dd>讨论与正式决定混在聊天中，AI 容易误写项目状态</dd></div><div><dt>关键设计</dt><dd>来源证据 · 状态机 · 人工审批</dd></div><div><dt>结果</dt><dd>7 人团队完成 Web MVP，并在 2 个课程项目中测试</dd></div></dl>
+            <dl><div><dt>问题</dt><dd>讨论、决定与执行状态混在聊天和会议中</dd></div><div><dt>核心判断</dt><dd>AI 结果需经过来源核对、状态流转和人工审批</dd></div><div><dt>产品经理交付物</dt><dd>PRD · Agent 流程 · 状态模型 · P0 验收标准</dd></div><div><dt>真实证据</dt><dd>7 人跨职能团队 · Web MVP · 2 个课程项目测试</dd></div></dl>
             <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/threadline/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://threadline-agent.oliverruby788.chatgpt.site/" target="_blank" rel="noreferrer">打开公开 Demo <span>↗</span></a></div>
           </div>
         </article>
@@ -54,14 +54,14 @@ export default function Home() {
               <div><span>Independent Project</span><span>功能型 MVP · 4 人测试</span></div>
               <p>求职机会与决策工作台</p><h3>职序 ZHIXU</h3>
               <p className="folio-card-summary">面向实习与校招求职者，保存岗位来源，确认 JD 字段，核对硬性条件与个人经历依据，并管理投递行动。</p>
-              <dl><div><dt>问题</dt><dd>匹配结论缺少依据，用户不知道为什么该投</dd></div><div><dt>关键设计</dt><dd>岗位要求 → 个人证据 → 判断 → 行动</dd></div><div><dt>结果</dt><dd>4 名用户完成真实 JD 任务，推动确认、去重和行动入口修改</dd></div></dl>
-              <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/zhixu/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://zhixu-career.oliverruby788.chatgpt.site/" target="_blank" rel="noreferrer">打开公开 Demo <span>↗</span></a></div>
+              <dl><div><dt>问题</dt><dd>岗位事实、个人证据与投递行动彼此分散</dd></div><div><dt>核心判断</dt><dd>模型整理、规则判断、用户确认必须分层</dd></div><div><dt>产品经理交付物</dt><dd>PRD · 信息架构 · 交互原型 · SQL 数据核验</dd></div><div><dt>真实证据</dt><dd>功能型 MVP · 4 名用户真实 JD 任务测试</dd></div></dl>
+              <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/zhixu/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://zhixu-career.homercobbuwd.chatgpt.site/" target="_blank" rel="noreferrer">打开公开 Demo <span>↗</span></a></div>
             </div>
           </article>
-          <article className="folio-project-card reveal-card">
+          <article className="folio-project-card folio-product-lab reveal-card">
             <a className="folio-card-media folio-card-signal" href={path("/projects/signal/")}><img src={path("/real-signal.png")} alt="Signal 当前信息分类工作区"/><span>03</span></a>
             <div className="folio-card-copy">
-              <div><span>Independent Project</span><span>本地产品 · 自用迭代</span></div>
+              <div><span>Product Lab</span><span>本地产品 · 自用迭代</span></div>
               <p>个人收藏整理工具</p><h3>Signal</h3>
               <p className="folio-card-summary">对截图、收藏文字和混合备忘录进行 OCR 与轻度整理，用户确认后放入自己的分类体系，并保留原始来源。</p>
               <dl><div><dt>问题</dt><dd>AI 分析过多，反而增加个人整理的阅读负担</dd></div><div><dt>关键设计</dt><dd>只保留识别、轻度整理、用户分类与原始来源</dd></div><div><dt>结果</dt><dd>真实自用推动 V1 功能删减与产品重构</dd></div></dl>

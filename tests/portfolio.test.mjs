@@ -14,7 +14,8 @@ test("external portfolio does not expose localhost product calls to action",asyn
   assert.doesNotMatch(files[0],/公开演示访问权限待恢复|公开体验版待部署/);
   assert.match(files[0],/百词斩 AIGC 实习/);
   assert.match(files[0],/3000\+ 条模型生成结果/);
-  assert.match(files[0],/7 人团队 Agent Web MVP/);
+  assert.match(files[0],/7 人跨职能团队 Agent Web MVP/);
+  assert.match(files[0],/PRD · 信息架构 · 原型 · P0 验收/);
   assert.match(files[0],/四川大学 · 2029 届/);
   assert.match(files[0],/旅游管理本科（工科转入）/);
   assert.match(files[1],/threadline-agent\.oliverruby788\.chatgpt\.site/);
@@ -34,10 +35,10 @@ test("each case has evidence, product boundaries, and a distinct narrative",asyn
   assert.match(threadline,/role:"产品负责人"/);
   assert.match(threadline,/7 人跨职能团队/);
   assert.match(threadline,/两个真实课程协作项目/);
-  assert.match(threadline,/Confirmed \/ Applied \/ Verified/);
+  assert.match(threadline,/Confirmed.*Applied.*Verified/);
   assert.match(threadline,/团队共同完成/);
   assert.match(threadline,/产品负责人交付物/);
-  assert.match(threadline,/项目变化识别与审批工具/);
+  assert.match(threadline,/AI 项目变化识别与审批 Agent/);
   assert.doesNotMatch(threadline,/项目变化控制层，而不是另一个任务看板|先说明我负责什么|这个项目的价值不在/);
   assert.match(zhixu,/zhixu-v1\.png/);
   assert.match(zhixu,/JD 文本与公开链接|JD 文本和公开链接/);
@@ -46,8 +47,10 @@ test("each case has evidence, product boundaries, and a distinct narrative",asyn
   assert.match(signal,/多轮真实自用迭代/);
   assert.match(signal,/经项目服务发送给 DeepSeek/);
   assert.doesNotMatch(signal,/数据和 API Key 留在当前浏览器/);
-  assert.equal((zhixu.match(/^    \{label:/gm)||[]).length,4);
-  assert.equal((threadline.match(/^    \{label:/gm)||[]).length,6);
+  assert.match(zhixu,/pmEvidence:"zhixu"/);
+  assert.match(threadline,/pmEvidence:"threadline"/);
+  assert.equal((zhixu.match(/^    \{label:/gm)||[]).length,5);
+  assert.equal((threadline.match(/^    \{label:/gm)||[]).length,7);
   assert.equal((signal.match(/^    \{label:/gm)||[]).length,6);
 });
 
@@ -66,7 +69,7 @@ test("case navigation supports stable desktop and mobile reading",async()=>{
   assert.match(css,/case-mobile-nav \.case-progress/);
   assert.match(css,/\.case-rail\{background:#090909/);
   assert.match(css,/\.case-ownership/);
-  assert.match(css,/width:720px/);
+  assert.match(css,/\.case-cover img.*width:100%;max-width:100%/s);
   assert.match(css,/\.case-facts dd\{margin-top:28px;font-size:13px/);
   assert.match(css,/\.case-ownership p\{font-size:14px/);
 });
@@ -89,7 +92,7 @@ test("Zhixu uses every verified portfolio handoff screenshot",async()=>{
     await access(new URL(`public/${asset}`,root));
   }
   assert.doesNotMatch(page,/Cloudflare 403/);
-  assert.match(page,/zhixu-career\.oliverruby788\.chatgpt\.site/);
+  assert.match(page,/zhixu-career\.homercobbuwd\.chatgpt\.site/);
   assert.match(page,/关键产品判断/);
   assert.match(page,/截图 OCR 和 PDF 解析仍处于实验阶段/);
 });
@@ -102,7 +105,9 @@ test("Zhixu in-page demo exposes a complete five-step decision flow",async()=>{
   assert.match(demo,/自动演示中/);
   assert.match(demo,/takeControl/);
   assert.match(demo,/重新演示/);
-  assert.match(demo,/创建投递任务/);
+  assert.match(demo,/创建.*行动/);
+  assert.match(demo,/疑似重复岗位/);
+  assert.match(demo,/原文未提及/);
 });
 
 test("Signal uses every verified portfolio handoff screenshot",async()=>{

@@ -5,10 +5,10 @@ export const dynamic="force-static";
 
 const d:CaseData={
   name:"职序 ZHIXU",index:"02",next:{name:"Signal",href:"/projects/signal"},cover:"/real-zhixu.png",
-  kicker:"独立 0→1 项目 · 2026.02—03",tagline:"AI 求职信息与决策工作台",
+  kicker:"独立产品重构 · 2026.07—08",tagline:"AI 求职信息与决策工作台",
   summary:"将真实 JD、岗位来源和个人经历依据连接起来，帮助实习与校招求职者先确认岗位事实，再判断硬性条件、核对个人证据并创建投递行动。",
   role:"独立产品负责人",nature:"独立 0→1 项目",user:"同时处理多条实习机会的求职者",stage:"功能型 MVP · 4 名目标用户任务测试",
-  facts:[["项目时间","2026.02—2026.03"],["产品调整","职业规划工具 → 真实岗位决策工作台"],["核心链路","导入 → 确认 → 判断 → 证据 → 行动"],["真实测试","4 名同校实习求职用户完成真实 JD 任务"]],
+  facts:[["V1","2026.02—03 · 职业规划工具"],["重构与 MVP","2026.07—08 · 岗位决策工作台"],["核心链路","导入 → 确认 → 判断 → 证据 → 行动"],["真实测试","4 名同校实习求职用户完成真实 JD 任务"]],
   story:[
     {label:"项目结论",title:"从职业分析改为真实岗位决策",intro:"V1 能生成职业分析、能力差距和学习建议，但无法继续承接用户手里的真实 JD、岗位来源、截止时间和投递进度。当前版本将核心对象收敛为具体招聘机会，并把岗位事实、个人证据和投递行动关联起来。",blocks:[
       {label:"问题",title:"分析结束后仍要重新整理",body:"岗位信息和投递任务继续分散在招聘平台、备忘录与表格中，生成的建议无法承接下一步。"},
@@ -24,6 +24,7 @@ const d:CaseData={
       {label:"模型",title:"整理非结构化材料",body:"提取 JD 字段、整理岗位要求并检索个人经历证据；原文未提及的字段保持缺失。"},
       {label:"用户",title:"确认事实与行动",body:"低置信字段、疑似重复岗位、证据采用和正式投递动作均由用户确认。"}
     ],media:[{src:"/zhixu-inbox-review.png",alt:"职序岗位导入确认页面",caption:"真实产品证据 · 原始 JD、提取字段、疑似重复与确认入口"},{src:"/zhixu-evidence-decision.png",alt:"职序岗位证据判断页面",caption:"真实产品证据 · 硬性条件、经历证据与缺口分开呈现"}]},
+    {label:"产品经理交付物",title:"从 PRD、信息架构到数据核验",intro:"当前版本以招聘机会、个人求职档案和投递行动为三个核心对象；产品机制、数据结构和测试任务围绕同一条决策链路组织。",blocks:[],pmEvidence:"zhixu"},
     {label:"测试与修改",title:"4 名用户完成真实 JD 导入与投递判断",intro:"4 名同校实习求职用户使用各自正在考虑的 JD，完成字段核对、硬性条件检查、个人证据判断和下一步行动创建。每个观察结果都对应具体修改。",blocks:[],comparison:{headers:["用户卡点","原方案","修改后"],rows:[
       ["容易把 AI 提取结果当成事实","提取后直接写入机会","增加待确认状态，并列展示原始 JD"],
       ["同一岗位从不同渠道导入","自动合并重复记录","改为疑似重复复核，保留各自来源"],
@@ -36,7 +37,7 @@ const d:CaseData={
       {label:"当前限制",title:"不声称长期效率提升",body:"尚未形成长期求职效率数据；截图 OCR 和 PDF 解析仍处于实验阶段。"}
     ],media:[{src:"/zhixu-information-records.png",alt:"职序信息记录页面",caption:"真实产品证据 · 投递准备与复盘关联岗位和任务"}],demo:true}
   ],
-  demo:"zhixu",demoIntro:"今日工作台集中处理待确认机会、临近截止、重复审阅和证据缺口。",productImage:"/zhixu-today-workspace.png",imageNote:"当前产品界面 · 作品集隔离演示数据",links:[{label:"打开职序 Demo",url:"https://zhixu-career.oliverruby788.chatgpt.site/",note:"公开体验版"}]
+  demo:"zhixu",demoIntro:"今日工作台集中处理待确认机会、临近截止、重复审阅和证据缺口。",productImage:"/zhixu-today-workspace.png",imageNote:"当前产品界面 · 作品集隔离演示数据",links:[{label:"打开职序 Demo",url:"https://zhixu-career.homercobbuwd.chatgpt.site/",note:"公开体验版"}]
 };
 
 export default function Page(){return <ProjectCase d={d}/>}

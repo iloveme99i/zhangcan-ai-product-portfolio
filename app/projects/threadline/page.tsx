@@ -5,10 +5,10 @@ export const dynamic="force-static";
 
 const d:CaseData={
   name:"Threadline",index:"01",next:{name:"职序 ZHIXU",href:"/projects/zhixu"},cover:"/real-threadline.png",
-  kicker:"7 人团队项目 · AI 项目变化识别与审批 Agent · 2026.04—06",tagline:"面向小型团队的项目变化识别与审批工具",
+  kicker:"7 人团队项目 · AI 项目变化识别与审批 Agent · 2026.04—06",tagline:"识别项目变化，核对证据，再由负责人确认",
   summary:"系统从聊天、会议记录和项目材料中识别范围、负责人和截止时间变化，展示原始依据与影响对象，并在负责人确认后写入内部行动记录。",
   role:"产品负责人",nature:"7 人跨职能团队项目",user:"3–10 人轻量项目团队",stage:"可运行 Web MVP · 公开 Demo · 2 个课程小组测试",
-  facts:[["项目时间","2026.04—2026.06"],["产品","项目变化识别与审批工具"],["团队与职责","7 人跨职能团队 · 产品负责人"],["验证","2 个课程协作小组完成项目周期测试"]],
+  facts:[["开发与测试","2026.04—06 · 7 人团队 MVP 与课程测试"],["整理与复盘","2026.08 · 公开 Demo、版本记录与作品集复盘"],["团队与职责","7 人跨职能团队 · 产品负责人"],["验证","2 个课程协作小组完成项目周期测试"]],
   story:[
     {label:"项目概览",title:"产品范围与当前状态",intro:"Threadline 处理沟通中出现的项目变化。当前版本覆盖上下文导入、变化识别、证据展示、影响分析、人工审批和内部行动记录；外部工具自动执行尚未接入。",blocks:[
       {label:"产品类型",title:"AI 项目变化识别与审批 Agent",body:"面向 3–10 人轻量团队，处理范围、负责人、时间与交付要求的变化。"},
@@ -20,6 +20,7 @@ const d:CaseData={
       {label:"02 / 团队完成",title:"Web MVP 设计与实现",detail:"团队共同完成 UI、前后端、模型接入、测试、Bug 修正和版本交付。"},
       {label:"03 / 贡献边界",title:"团队成果共同归属",detail:"我的个人贡献集中在产品与项目推进；代码、视觉和工程实现由相应成员共同完成。"}
     ],blocks:[],artifact:{eyebrow:"产品负责人交付物",title:"产品战略、状态设计与 12 周升级方案",meta:"V1.0 · 2026.08",items:["确定目标用户、核心问题与 MVP 范围","定义 Captured、Proposed、Confirmed、Applied、Verified 状态","将来源追溯、人工审批和执行边界写入 P0 验收标准"]}},
+    {label:"产品经理交付物",title:"需求、流程、状态与验收标准",intro:"这些交付物把 Agent 概念转成团队可以设计、开发、测试和验收的产品范围。",blocks:[],pmEvidence:"threadline"},
     {label:"用户与问题",title:"用户场景与问题定义",intro:"小型团队的计划通常保存在任务工具中，但范围、负责人和截止时间变化会先出现在群聊、会议和临时文件里。负责人需要重新核对沟通内容，再手动更新原计划。",blocks:[
       {label:"问题 01",title:"讨论与决定混在一起",body:"成员提出的想法、暂定方案和正式决定出现在同一段沟通中，模型容易误判状态。"},
       {label:"问题 02",title:"同一变化分散出现",body:"一次脚本或交付调整可能分散在多条消息里，逐条处理会生成重复记录。"},
@@ -29,7 +30,7 @@ const d:CaseData={
       {label:"识别",title:"上下文与变化提议",body:"导入聊天、会议或材料，模型提取变化对象、原文证据、新旧状态与潜在影响。"},
       {label:"控制",title:"状态与审批规则",body:"Captured、Proposed 与 Confirmed 分开处理，未确认内容不会写入正式项目状态。"},
       {label:"记录",title:"内部行动与结果确认",body:"批准后生成内部行动记录；Applied 与 Verified 分别表示已应用和已核对结果。"}
-    ],evidence:[{meta:"完整流程",title:"上下文导入 → 变化识别 → 证据展示 → 影响分析 → 人工审批 → 内部行动记录 → 结果确认",detail:"外部通知、文档和任务系统仍需人工处理，页面不会把批准显示为外部执行完成。"}]},
+    ],evidence:[{meta:"完整流程",title:"上下文导入 → 变化识别 → 证据核对 → 影响分析 → 人工审批 → 内部行动记录 → 结果确认",detail:"外部通知、文档和任务系统仍需人工处理，页面不会把批准显示为外部执行完成。"}]},
     {label:"用户测试",title:"两个课程协作项目的测试与修改",intro:"测试覆盖选题、分工、内容制作、修改和最终提交。每次发现都对应具体产品调整。",comparison:{headers:["测试发现","产品修改"],rows:[
       ["AI 容易把讨论当成正式决定","增加 Proposed / Confirmed 状态，并展示原文、来源和时间"],
       ["同一变化被拆成多条记录","合并关联变化，保留父子关系"],
@@ -43,7 +44,7 @@ const d:CaseData={
       {label:"已完成",title:"Agent MVP 与公开 Demo",body:"变化识别、来源证据、影响分析、人工审批和内部行动记录已在 Web 产品中实现。"},
       {label:"已测试",title:"两个真实课程协作场景",body:"产品在两个完整课程项目周期中持续使用，并根据测试问题修改状态与审批机制。"},
       {label:"当前限制",title:"外部执行与企业验证未完成",body:"尚未连接微信、Notion、Linear 等外部工具，也未进行企业团队长期试点；不声称已提高普遍团队效率。"}
-    ],evidence:[{meta:"项目周期",title:"2026.04—2026.06",detail:"项目时间与简历保持一致；团队角色和个人贡献以职责说明及交付物为主要证据。"}]}
+    ],evidence:[{meta:"MVP 与课程测试",title:"2026.04—2026.06",detail:"7 人团队完成 Web MVP，并在两个课程协作项目中测试。"},{meta:"Demo 与复盘",title:"2026.08",detail:"整理公开 Demo、版本记录与作品集复盘；不改写原团队项目的开发周期。"}]}
   ],
   demo:"threadline",demoIntro:"公开 Demo 展示来源、旧状态、影响对象和建议行动。",productImage:"/real-threadline.png",imageNote:"公开 Demo 示例数据 · 当前真实产品界面",links:[{label:"打开 Threadline Demo",url:"https://threadline-agent.oliverruby788.chatgpt.site/",note:"公开体验版"}]
 };
