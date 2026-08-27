@@ -44,7 +44,7 @@ export default function Home() {
             <h3>Threadline</h3>
             <p className="folio-summary">面向 3–10 人项目团队，从聊天、会议记录和项目材料中识别范围、负责人和截止时间变化，并在人工确认后更新内部行动记录。</p>
             <dl><div><dt>问题</dt><dd>讨论、决定与执行状态混在聊天和会议中</dd></div><div><dt>核心判断</dt><dd>AI 结果需经过来源核对、状态流转和人工审批</dd></div><div><dt>产品经理交付物</dt><dd>PRD · Agent 流程 · 状态模型 · P0 验收标准</dd></div><div><dt>真实证据</dt><dd>7 人跨职能团队 · Web MVP · 2 个课程项目测试</dd></div></dl>
-            <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/threadline/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://threadline-agent.oliverruby788.chatgpt.site/" target="_blank" rel="noreferrer">打开公开 Demo <span>↗</span></a></div>
+            <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/threadline/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://iloveme99i.github.io/threadline-agent/" target="_blank" rel="noreferrer">打开完整产品 <span>↗</span></a></div>
           </div>
         </article>
         <div className="folio-project-pair">
@@ -54,8 +54,8 @@ export default function Home() {
               <div><span>Independent Project</span><span>功能型 MVP · 4 人测试</span></div>
               <p>求职机会与决策工作台</p><h3>职序 ZHIXU</h3>
               <p className="folio-card-summary">面向实习与校招求职者，保存岗位来源，确认 JD 字段，核对硬性条件与个人经历依据，并管理投递行动。</p>
-              <dl><div><dt>问题</dt><dd>岗位事实、个人证据与投递行动彼此分散</dd></div><div><dt>核心判断</dt><dd>模型整理、规则判断、用户确认必须分层</dd></div><div><dt>产品经理交付物</dt><dd>PRD · 信息架构 · 交互原型 · SQL 数据核验</dd></div><div><dt>真实证据</dt><dd>功能型 MVP · 4 名用户真实 JD 任务测试</dd></div></dl>
-              <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/zhixu/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://zhixu-career.homercobbuwd.chatgpt.site/" target="_blank" rel="noreferrer">打开公开 Demo <span>↗</span></a></div>
+              <dl><div><dt>问题</dt><dd>岗位事实、个人证据与投递行动彼此分散</dd></div><div><dt>核心判断</dt><dd>模型整理、规则判断、用户确认必须分层</dd></div><div><dt>产品经理交付物</dt><dd>PRD · 信息架构 · 原型 · 用户测试</dd></div><div><dt>真实证据</dt><dd>功能型 MVP · 4 名用户真实 JD 任务测试</dd></div></dl>
+              <div className="folio-project-actions"><a className="folio-text-link" href={path("/projects/zhixu/")}>阅读 Case Study <span>↗</span></a><a className="folio-text-link" href="https://iloveme99i.github.io/zhixu-career/" target="_blank" rel="noreferrer">打开完整产品 <span>↗</span></a></div>
             </div>
           </article>
           <article className="folio-project-card folio-product-lab reveal-card">
@@ -72,25 +72,30 @@ export default function Home() {
       </section>
 
       <section className="folio-about" id="about">
-        <header className="reveal-group"><p>About</p><h2>个人档案</h2><span>04</span></header>
-        <div className="folio-profile">
-          <article className="folio-profile-card reveal-card"><span>ZC / 2026</span><div><h3>张灿</h3><p>ZHANG CAN</p></div><a href="mailto:zc_xingshan@qq.com">zc_xingshan@qq.com ↗</a></article>
-          <div className="folio-profile-details reveal-card">
-            <p>四川大学旅游管理本科生（工科转入），正在寻找 AI 产品与产品相关实习。在百词斩参与 AIGC 内容生产、模型评测、Prompt 迭代、Bad Case 分析与人机协同流程。</p>
-            <dl>
-              <div><dt>Education</dt><dd>四川大学 · 旅游管理本科（工科转入）</dd></div>
-              <div><dt>Experience</dt><dd>百词斩 · AIGC 内容量产助理</dd></div>
-              <div><dt>Focus</dt><dd>AI 产品 · 可信交互 · 工作流</dd></div>
-              <div><dt>Seeking</dt><dd>AI 产品实习 / 产品相关实习</dd></div>
-            </dl>
-          </div>
+        <header className="reveal-group"><p>ABOUT / 04</p><h2>关于我</h2><span>04</span></header>
+        <div className="folio-about-copy reveal-card">
+          <p>我是张灿，四川大学2029届本科生，旅游管理专业，由工科转入。</p>
+          <p>我在百词斩参与过AIGC内容生产，日常工作包括模型结果评测、Prompt迭代、Bad Case整理和审核流程优化。</p>
+          <p>作品集里的三个项目都来自我实际遇到的问题：Threadline来自课程团队协作，职序来自自己的求职过程，Signal来自日常收藏和信息整理。我在这些项目中负责过需求分析、PRD、信息架构、产品流程、原型、用户测试、验收和团队推进。</p>
+          <p>目前寻找AI产品实习或产品相关实习。</p>
+        </div>
+        <div className="folio-about-info reveal-card">
+          <h3>个人信息</h3>
+          <dl>
+            <div><dt>学校</dt><dd>四川大学</dd></div><div><dt>年级</dt><dd>2029届本科</dd></div>
+            <div><dt>专业</dt><dd>旅游管理（工科转入）</dd></div><div><dt>经历</dt><dd>百词斩AIGC内容量产助理</dd></div>
+            <div><dt>求职方向</dt><dd>AI产品实习 / 产品实习</dd></div><div><dt>到岗安排</dt><dd>即日起可到岗｜每周5–6天｜可连续实习6个月以上</dd></div>
+            <div><dt>所在地</dt><dd>成都</dd></div><div><dt>邮箱</dt><dd>zc_xingshan@qq.com</dd></div>
+          </dl>
+          <nav><a href={path("/resume.pdf")} download="张灿-产品-简历.pdf">下载简历</a><a href="mailto:zc_xingshan@qq.com">邮件联系</a></nav>
         </div>
       </section>
 
       <footer className="folio-footer" id="contact">
-        <p>Contact</p>
-        <div><h2>联系</h2><a href="mailto:zc_xingshan@qq.com">zc_xingshan@qq.com <span>↗</span></a></div>
-        <aside><span>成都 / 可实习</span><span>四川大学 · 旅游管理</span><a href={path("/resume.pdf")} download="张灿-AI产品经理实习-四川大学-2029届.pdf">下载 PDF 简历 ↓</a><a href="#home">回到顶部 ↑</a></aside>
+        <p>CONTACT / 05</p>
+        <div className="folio-contact-main"><div><h2>正在寻找AI产品实习机会</h2><p>即日起可到岗｜每周5–6天｜可连续实习6个月以上</p><p>如果岗位合适，欢迎联系我。</p></div><address><b>张灿</b><span>四川大学｜2029届本科</span><a href="mailto:zc_xingshan@qq.com">zc_xingshan@qq.com</a></address></div>
+        <nav className="folio-contact-actions"><a href={path("/resume.pdf")} download="张灿-产品-简历.pdf">下载简历</a><a href="mailto:zc_xingshan@qq.com">邮件联系</a><a href="#home">回到顶部</a></nav>
+        <aside><span>ZHANG CAN · AI PRODUCT PORTFOLIO · 2026</span></aside>
       </footer>
     </main>
   );

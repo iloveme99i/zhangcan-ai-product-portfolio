@@ -12,7 +12,7 @@ type StoryMedia={src:string;alt:string;caption:string;markers?:StoryMarker[]};
 type OwnershipItem={label:string;title:string;detail:string};
 type ArtifactItem={eyebrow:string;title:string;meta:string;items:string[]};
 type ComparisonTable={headers:string[];rows:string[][]};
-type StorySection={label:string;title:string;intro?:string;blocks:StoryBlock[];evidence?:EvidenceItem[];media?:StoryMedia[];ownership?:OwnershipItem[];artifact?:ArtifactItem;comparison?:ComparisonTable;demo?:boolean;pmEvidence?:"threadline"|"zhixu"};
+type StorySection={label:string;title:string;intro?:string;blocks:StoryBlock[];evidence?:EvidenceItem[];media?:StoryMedia[];ownership?:OwnershipItem[];artifact?:ArtifactItem;comparison?:ComparisonTable;demo?:boolean;interactive?:boolean;pmEvidence?:"threadline"|"zhixu"};
 type ProductLink={label:string;url?:string;note:string};
 export type CaseData={
   name:string;index:string;next:{name:string;href:string};cover:string;kicker:string;tagline:string;summary:string;
@@ -43,7 +43,7 @@ export default function ProjectCase({d}:{d:CaseData}){
         <h2>{section.title}</h2>{section.intro&&<p className="section-intro">{section.intro}</p>}
         {section.blocks.length>0&&<div className={`case-blocks case-blocks-${section.blocks.length}`}>{section.blocks.map((block)=><article className="case-tile" key={block.title}><span>{block.label}</span><h3>{block.title}</h3><p>{block.body}</p></article>)}</div>}
         {section.ownership&&<div className="case-ownership">{section.ownership.map(item=><article key={item.label}><span>{item.label}</span><h3>{item.title}</h3><p>{item.detail}</p></article>)}</div>}
-        {section.label==="关键产品判断"&&<CaseInteractiveDemo kind={d.demo}/>}
+        {section.interactive&&<CaseInteractiveDemo kind={d.demo}/>}
         {section.pmEvidence&&<ProductManagerEvidence kind={section.pmEvidence}/>}
         {section.comparison&&<div className="case-comparison" role="table" aria-label={`${section.label}对照表`}>{[section.comparison.headers,...section.comparison.rows].map((row,rowIndex)=><div className={rowIndex===0?"case-comparison-head":undefined} role="row" style={{gridTemplateColumns:`repeat(${row.length}, minmax(0, 1fr))`}} key={row.join("-")}>{row.map((cell,cellIndex)=>rowIndex===0?<b role="columnheader" key={cell}>{cell}</b>:<span role="cell" key={`${cell}-${cellIndex}`}>{cell}</span>)}</div>)}</div>}
         {section.artifact&&<aside className="case-artifact"><header><span>{section.artifact.eyebrow}</span><b>{section.artifact.meta}</b></header><h3>{section.artifact.title}</h3><ol>{section.artifact.items.map(item=><li key={item}>{item}</li>)}</ol></aside>}

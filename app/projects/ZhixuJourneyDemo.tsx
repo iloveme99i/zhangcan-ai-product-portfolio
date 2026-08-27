@@ -18,7 +18,7 @@ const conditions=[
 const evidence=[
   {requirement:"AIGC 项目经验",source:"百词斩 AIGC 实习",result:"直接证据",detail:"评测 3000+ 条模型生成结果，参与 Prompt 迭代、Bad Case 治理与人机协同流程。"},
   {requirement:"AI 产品设计",source:"Threadline / 职序",result:"项目证据",detail:"完成 Agent 状态与审批机制设计，并独立推进求职工作台从需求到可运行版本。"},
-  {requirement:"数据分析能力",source:"职序 D1 / SQL 数据核验",result:"项目证据",detail:"围绕机会数量与统计样本门槛建立可复现查询；样本不足时不输出趋势判断。"},
+  {requirement:"数据处理基础",source:"职序 D1 / SQLite 数据存储",result:"基础实现",detail:"使用 D1/SQLite 保存岗位、证据判断与投递状态，并通过基础查询核对数据完整性和更新时间。"},
   {requirement:"算法建模经验",source:"个人档案未提供",result:"没有依据",detail:"岗位将算法建模列为加分项；档案中没有对应经历，因此不由模型补写。"}
 ];
 

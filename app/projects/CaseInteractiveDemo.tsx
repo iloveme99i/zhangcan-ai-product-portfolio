@@ -32,7 +32,27 @@ const demos={
 
 export default function CaseInteractiveDemo({kind}:{kind:keyof typeof demos}){
   if(kind==="zhixu")return <ZhixuJourneyDemo/>;
+  if(kind==="threadline")return <ThreadlineMechanismDemo/>;
   return <CompactDemo kind={kind}/>;
+}
+
+const threadlineSteps=[
+  {name:"捕获变化",meta:"原始上下文",summary:"保留会议原文、来源和时间",example:"“首发版移除说话人识别，发布日期不变。”",fields:["来源：8 月 11 日产品例会录音","状态：Captured","原文可追溯"]},
+  {name:"核对证据与影响",meta:"新旧对照",summary:"查看旧状态、新证据和受影响对象",example:"旧状态：首发包含说话人识别 → 新证据：首发移除",fields:["影响 PRD 功能范围","影响测试用例","影响定价页与发布文章"]},
+  {name:"人工审批",meta:"负责人决定",summary:"未确认的变化不进入正式记录",example:"负责人核对依据和影响后，选择批准或排除。",fields:["状态：Proposed","可选择执行动作","所有决定留存审计记录"]},
+  {name:"记录状态流转",meta:"结果核对",summary:"将已确认、已应用和已核对分开",example:"批准仅代表确认变化，不代表外部任务已完成。",fields:["Confirmed · 已确认","Applied · 已写入内部记录","Verified · 已核对结果"]}
+] as const;
+
+function ThreadlineMechanismDemo(){
+  const [active,setActive]=useState(0);
+  const selected=threadlineSteps[active];
+  return <section className="case-interactive-demo interactive-threadline" aria-label="从变化发现到人工确认交互演示">
+    <header><div><span>核心机制交互演示 · 使用模拟项目数据</span><h3>从变化发现到人工确认</h3></div><small>点击步骤查看，不自动轮播</small></header>
+    <div className="interactive-object-map">
+      {threadlineSteps.map((item,index)=><button type="button" className={index===active?"active":""} aria-pressed={index===active} onClick={()=>setActive(index)} key={item.name}><span>0{index+1} / {item.meta}</span><b>{item.name}</b><small>{item.summary}</small></button>)}
+    </div>
+    <article className="interactive-detail" key={active}><div><span>当前示例</span><h4>{selected.name}</h4><p>{selected.example}</p></div><ul>{selected.fields.map(field=><li key={field}>{field}</li>)}</ul></article>
+  </section>;
 }
 
 function CompactDemo({kind}:{kind:"threadline"|"signal"}){

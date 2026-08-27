@@ -5,10 +5,10 @@ export const dynamic="force-static";
 
 const d:CaseData={
   name:"职序 ZHIXU",index:"02",next:{name:"Signal",href:"/projects/signal"},cover:"/real-zhixu.png",
-  kicker:"独立产品重构 · 2026.07—08",tagline:"AI 求职信息与决策工作台",
+  kicker:"独立 0→1 产品 · 2026.02—03",tagline:"AI 求职信息与决策工作台",
   summary:"将真实 JD、岗位来源和个人经历依据连接起来，帮助实习与校招求职者先确认岗位事实，再判断硬性条件、核对个人证据并创建投递行动。",
   role:"独立产品负责人",nature:"独立 0→1 项目",user:"同时处理多条实习机会的求职者",stage:"功能型 MVP · 4 名目标用户任务测试",
-  facts:[["V1","2026.02—03 · 职业规划工具"],["重构与 MVP","2026.07—08 · 岗位决策工作台"],["核心链路","导入 → 确认 → 判断 → 证据 → 行动"],["真实测试","4 名同校实习求职用户完成真实 JD 任务"]],
+  facts:[["项目周期","2026.02—03 · V1 与岗位决策工作台重构"],["产品演进","职业规划工具 → 岗位决策工作台"],["核心链路","导入 → 确认 → 判断 → 证据 → 行动"],["真实测试","4 名同校实习求职用户完成真实 JD 任务"]],
   story:[
     {label:"项目结论",title:"从职业分析改为真实岗位决策",intro:"V1 能生成职业分析、能力差距和学习建议，但无法继续承接用户手里的真实 JD、岗位来源、截止时间和投递进度。当前版本将核心对象收敛为具体招聘机会，并把岗位事实、个人证据和投递行动关联起来。",blocks:[
       {label:"问题",title:"分析结束后仍要重新整理",body:"岗位信息和投递任务继续分散在招聘平台、备忘录与表格中，生成的建议无法承接下一步。"},
@@ -19,7 +19,7 @@ const d:CaseData={
       ["输出综合匹配建议","缺少个人经历依据","岗位要求与个人证据逐项对应"],
       ["分析到此结束","用户还要另建待办与表格","判断后直接创建投递行动"]
     ]},media:[{src:"/zhixu-v1.png",alt:"职序 V1 职业规划页面",caption:"V1 · 职业分析、差距诊断与学习路径"},{src:"/zhixu-today-workspace.png",alt:"职序当前今日工作台",caption:"当前产品 · 待确认机会、截止时间与下一步行动"}]},
-    {label:"关键产品判断",title:"岗位事实、个人证据与行动必须相互关联",intro:"职序不使用一个总匹配分数替用户做决定。规则判断明确条件，模型整理非结构化信息，用户确认关键事实、个人证据和正式投递行动。下面的站内演示使用模拟岗位与模拟用户档案，不读取真实用户数据。",blocks:[
+    {label:"关键产品判断",title:"岗位事实、个人证据与行动必须相互关联",intro:"职序不使用一个总匹配分数替用户做决定。规则判断明确条件，模型整理非结构化信息，用户确认关键事实、个人证据和正式投递行动。下面的站内演示使用模拟岗位与模拟用户档案，不读取真实用户数据。",interactive:true,blocks:[
       {label:"规则",title:"判断明确条件",body:"毕业年份、实习周期、城市和截止时间按确定性条件逐项返回满足、待确认或不满足。"},
       {label:"模型",title:"整理非结构化材料",body:"提取 JD 字段、整理岗位要求并检索个人经历证据；原文未提及的字段保持缺失。"},
       {label:"用户",title:"确认事实与行动",body:"低置信字段、疑似重复岗位、证据采用和正式投递动作均由用户确认。"}
@@ -37,7 +37,7 @@ const d:CaseData={
       {label:"当前限制",title:"不声称长期效率提升",body:"尚未形成长期求职效率数据；截图 OCR 和 PDF 解析仍处于实验阶段。"}
     ],media:[{src:"/zhixu-information-records.png",alt:"职序信息记录页面",caption:"真实产品证据 · 投递准备与复盘关联岗位和任务"}],demo:true}
   ],
-  demo:"zhixu",demoIntro:"今日工作台集中处理待确认机会、临近截止、重复审阅和证据缺口。",productImage:"/zhixu-today-workspace.png",imageNote:"当前产品界面 · 作品集隔离演示数据",links:[{label:"打开职序 Demo",url:"https://zhixu-career.homercobbuwd.chatgpt.site/",note:"公开体验版"}]
+  demo:"zhixu",demoIntro:"今日工作台集中处理待确认机会、临近截止、重复审阅和证据缺口。",productImage:"/zhixu-today-workspace.png",imageNote:"当前产品界面 · 作品集隔离演示数据",links:[{label:"打开职序产品",url:"https://iloveme99i.github.io/zhixu-career/",note:"直接进入完整产品"}]
 };
 
 export default function Page(){return <ProjectCase d={d}/>}

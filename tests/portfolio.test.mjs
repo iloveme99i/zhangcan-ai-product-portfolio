@@ -18,7 +18,8 @@ test("external portfolio does not expose localhost product calls to action",asyn
   assert.match(files[0],/PRD · 信息架构 · 原型 · P0 验收/);
   assert.match(files[0],/四川大学 · 2029 届/);
   assert.match(files[0],/旅游管理本科（工科转入）/);
-  assert.match(files[1],/threadline-agent\.oliverruby788\.chatgpt\.site/);
+  assert.match(files[1],/iloveme99i\.github\.io\/threadline-agent/);
+  assert.match(files[2],/iloveme99i\.github\.io\/zhixu-career/);
 });
 
 test("legacy about page returns to the confirmed one-screen profile",async()=>{
@@ -26,6 +27,18 @@ test("legacy about page returns to the confirmed one-screen profile",async()=>{
   assert.match(about,/AboutRedirect/);
   assert.match(redirect,/sitePath\("\/#about"\)/);
   assert.doesNotMatch(about,/三个独立产品|我能承担的工作/);
+});
+
+test("About and Contact keep distinct responsibilities and confirmed copy",async()=>{
+  const home=await read("app/page.tsx");
+  assert.match(home,/ABOUT \/ 04/);
+  assert.match(home,/我是张灿，四川大学2029届本科生，旅游管理专业，由工科转入/);
+  assert.match(home,/作品集里的三个项目都来自我实际遇到的问题/);
+  assert.match(home,/CONTACT \/ 05/);
+  assert.match(home,/正在寻找AI产品实习机会/);
+  assert.match(home,/即日起可到岗｜每周5–6天｜可连续实习6个月以上/);
+  assert.match(home,/ZHANG CAN · AI PRODUCT PORTFOLIO · 2026/);
+  assert.doesNotMatch(home,/让AI真正落地|用产品创造价值|保持好奇|探索更多可能|期待与优秀的团队相遇/);
 });
 
 test("each case has evidence, product boundaries, and a distinct narrative",async()=>{
@@ -77,7 +90,8 @@ test("case navigation supports stable desktop and mobile reading",async()=>{
 test("real current and historical product images are packaged",async()=>{
   await Promise.all([
     "public/real-threadline.png","public/real-zhixu.png","public/real-signal.png",
-    "public/zhixu-v1.png","public/signal-v1.png"
+    "public/zhixu-v1.png","public/signal-v1.png","public/threadline-change-center.png",
+    "public/threadline-change-review.png","public/threadline-project-memory.png"
   ].map(path=>access(new URL(path,root))));
 });
 
@@ -92,9 +106,30 @@ test("Zhixu uses every verified portfolio handoff screenshot",async()=>{
     await access(new URL(`public/${asset}`,root));
   }
   assert.doesNotMatch(page,/Cloudflare 403/);
-  assert.match(page,/zhixu-career\.homercobbuwd\.chatgpt\.site/);
+  assert.match(page,/iloveme99i\.github\.io\/zhixu-career/);
   assert.match(page,/关键产品判断/);
   assert.match(page,/截图 OCR 和 PDF 解析仍处于实验阶段/);
+});
+
+test("Zhixu keeps SQL as a basic supporting capability",async()=>{
+  const [home,page,evidence,demo]=await Promise.all([
+    read("app/page.tsx"),read("app/projects/zhixu/page.tsx"),
+    read("app/projects/ProductManagerEvidence.tsx"),read("app/projects/ZhixuJourneyDemo.tsx")
+  ]);
+  assert.match(home,/PRD · 信息架构 · 原型 · 用户测试/);
+  assert.match(page,/2026\.02—03/);
+  assert.doesNotMatch(page,/2026\.07—08/);
+  assert.match(evidence,/使用 D1\/SQLite 保存岗位、证据判断与投递状态/);
+  for(const source of [evidence,demo])assert.doesNotMatch(source,/career_workspaces|workspace_json\.opportunities|SELECT user_id|少于 10 条/);
+});
+
+test("Threadline uses real distinct screens and a manual mechanism demo",async()=>{
+  const [page,demo]=await Promise.all([read("app/projects/threadline/page.tsx"),read("app/projects/CaseInteractiveDemo.tsx")]);
+  for(const asset of ["threadline-change-center.png","threadline-change-review.png","threadline-project-memory.png"])assert.match(page,new RegExp(asset.replaceAll(".","\\.")));
+  assert.equal((page.match(/media:\[\{src:"\/real-threadline\.png"/g)||[]).length,0);
+  assert.match(demo,/从变化发现到人工确认/);
+  assert.match(demo,/核心机制交互演示 · 使用模拟项目数据/);
+  assert.match(demo,/不自动轮播/);
 });
 
 test("Zhixu in-page demo exposes a complete five-step decision flow",async()=>{
