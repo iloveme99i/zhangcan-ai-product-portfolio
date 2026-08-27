@@ -31,7 +31,7 @@
     ]
   },
   "app/about/AboutRedirect.tsx": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/AboutRedirect-BWH8YhxW.js",
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/AboutRedirect-CcOn8mJp.js",
     "name": "AboutRedirect",
     "src": "app/about/AboutRedirect.tsx",
     "isDynamicEntry": true,
@@ -61,7 +61,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/layout-segment-context-CMMHAY1O.js",
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/layout-segment-context-xlH84ZZp.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -72,7 +72,7 @@
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/index-D1kXOQTp.js",
+    "file": "zhangcan-ai-product-portfolio/_next/static/chunks/index-d-1o7vOE.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
